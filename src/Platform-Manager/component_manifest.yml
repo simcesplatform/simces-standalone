@@ -15,7 +15,7 @@ Type: platform
 # DockerImage is required attribute for platform managed components.
 # For externally managed components it is ignored.
 # The value should be the name of the Docker image that contains the simulation component.
-DockerImage: procem.ain.rd.tut.fi/simces/my_component_image
+DockerImage: ghcr.io/simcesplatform/my_component_image
 
 # Description is an optional attribute which can contain a description of the component to the simulation platform.
 Description: "My simulation component"
