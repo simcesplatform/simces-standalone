@@ -1,0 +1,9 @@
+# list of repositories required for the standalone version of simces
+#
+# format for the lines: <target_folder>;<github_address>
+
+Platform-Manager;https://github.com/simcesplatform/Platform-Manager
+Simulation-Manager;https://github.com/simcesplatform/Simulation-Manager
+LogReader;https://github.com/simcesplatform/LogReader
+LogWriter;https://github.com/simcesplatform/LogWriter
+static-time-series-resource;https://github.com/simcesplatform/static-time-series-resource
