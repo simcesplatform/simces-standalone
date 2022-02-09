@@ -1,0 +1,37 @@
+version: '3.5'
+
+services:
+
+  simulation_tools_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile-tests
+    image: simulation_tools_tests:0.3
+    container_name: simulation_tools_tests
+    restart: "no"
+    environment:
+      - SIMULATION_LOG_LEVEL=50
+      - RABBITMQ_HOST=rabbitmq_tools_tests
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_SSL=false
+      - RABBITMQ_SSL_VERSION=PROTOCOL_TLS
+      - RABBITMQ_EXCHANGE=procem.simulation_tools_exchange
+      - RABBITMQ_EXCHANGE_AUTODELETE=false
+      - RABBITMQ_EXCHANGE_DURABLE=false
+      - MONGODB_HOST=mongodb_tools_tests
+      - MONGODB_PORT=27017
+      - MONGODB_USERNAME=testuser
+      - MONGODB_PASSWORD=testpass
+      - MONGODB_DATABASE=test_logs
+      - MONGODB_TZ_AWARE=true
+      - ENV_TEST_VALUE_BOOL=true
+      - ENV_TEST_VALUE_INT=12
+      - ENV_TEST_VALUE_FLOAT=2.34
+      - ENV_TEST_VALUE_STRING=hello
+    networks:
+      - tools_test_network
+
+networks:
+  tools_test_network:
+    external: true
+    name: tools_test_network

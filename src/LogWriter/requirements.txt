@@ -1,0 +1,4 @@
+aio_pika==6.7.1
+aiounittest==1.4.0
+motor==2.2.0
+pymongo==3.11.0

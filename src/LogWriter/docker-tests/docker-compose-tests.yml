@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+
+  simulation_manager_tests:
+    build:
+      context: ..
+      dockerfile: Dockerfile-tests
+    image: log_writer_tests:0.1
+    container_name: log_writer_tests
+    restart: "no"
+    environment:
+      - SIMULATION_LOG_LEVEL=50
+    networks:
+      - log_test_network
+
+networks:
+  log_test_network:
+    name: log_test_network

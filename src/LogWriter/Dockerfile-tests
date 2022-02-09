@@ -1,0 +1,17 @@
+FROM python:3.7.9
+
+RUN mkdir -p /tests/init
+RUN mkdir -p /tests/log_writer
+RUN mkdir -p /tests/simulation-tools
+
+COPY requirements.txt /requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r /requirements.txt
+
+COPY init/ /tests/init/
+COPY log_writer/ /tests/log_writer/
+COPY simulation-tools/ /tests/simulation-tools/
+
+WORKDIR /tests
+
+CMD [ "python3", "-u", "-m", "unittest", "discover", "-s", ".", "-p", "*.py" ]

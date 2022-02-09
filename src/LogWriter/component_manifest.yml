@@ -1,0 +1,15 @@
+# The component manifest file for the Log Writer component
+
+Name: LogWriter
+Type: platform
+Description: "Log Writer component for the SimCES simulation platform"
+DockerImage: ghcr.io/simcesplatform/logwriter
+Attributes:
+    MessageBufferMaxDocumentCount:
+        Environment: MESSAGE_BUFFER_MAX_DOCUMENTS
+        Optional: true
+        Default: 20
+    MessageBufferMaxInterval:
+        Environment: MESSAGE_BUFFER_MAX_INTERVAL
+        Optional: true
+        Default: 10.0

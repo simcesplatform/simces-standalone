@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+
+  mongodb:
+    image: mongo:4.2.7
+    container_name: mongodb
+    restart: always
+    env_file:
+      - mongodb.env
+    expose:
+      - 27017
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - mongodb_network
+
+  mongo-express:
+    image: mongo-express:0.54.0
+    container_name: mongo-express
+    restart: always
+    depends_on:
+      - mongodb
+    env_file:
+      - mongo-express.env
+    ports:
+      - 8081:8081
+    networks:
+      - mongodb_network
+
+volumes:
+  mongodb_data:
+    name: mongodb_data
+
+networks:
+  mongodb_network:
+    external: true
+    name: mongodb_network

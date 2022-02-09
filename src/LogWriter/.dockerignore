@@ -1,0 +1,8 @@
+.git
+**/*.pyc
+**/__pycache__
+env
+.env
+*.env
+docker-compose*
+pyrightconfig.json
