@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://simcesplatform.github.io/energy_msg-startmessageblocks/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Start message blocks - SimCES</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link href="../css/extra.css" rel="stylesheet">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">SimCES</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Use <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href=".." class="dropdown-item">Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../core_features/" class="dropdown-item">Features</a>
+</li>
+                                    
+<li>
+    <a href="../core_install/" class="dropdown-item">Installation</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Run simulation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_run/" class="dropdown-item">Overview</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Test platform</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_run-first/" class="dropdown-item">Run first test simulation</a>
+</li>
+            
+<li>
+    <a href="../energy_run-ec-demo/" class="dropdown-item">Run Energy Community demo</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../core_platform-settings/" class="dropdown-item">Configuring settings</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Start simulation</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_run-preparations/" class="dropdown-item">Simulation run preparations</a>
+</li>
+            
+<li>
+    <a href="../core_start-simulation/" class="dropdown-item">Starting a simulation</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../core_follow-run/" class="dropdown-item">Follow running simulation</a>
+</li>
+            
+<li>
+    <a href="../core_stop-simulation/" class="dropdown-item">Stop simulation</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../core_log-api/" class="dropdown-item">Log API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Develop <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../core_develop-overview/" class="dropdown-item">Overview</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Basic concepts</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_time/" class="dropdown-item">Time and synchronization with epochs</a>
+</li>
+            
+<li>
+    <a href="../core_cmp-mgmt/" class="dropdown-item">Platform managed and externally managed components</a>
+</li>
+            
+<li>
+    <a href="../core_soa/" class="dropdown-item">Service-oriented architecture</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">How to develop</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Creating new component</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_create-cmp/" class="dropdown-item">Overview</a>
+</li>
+            
+<li>
+    <a href="../core_docker-image/" class="dropdown-item">Building Docker image for a component</a>
+</li>
+            
+<li>
+    <a href="../core_component-manifest/" class="dropdown-item">Creating a component manifest file</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../core_conv-msg/" class="dropdown-item">Conventions of messaging</a>
+</li>
+            
+<li>
+    <a href="../core_conv-name/" class="dropdown-item">Conventions of naming</a>
+</li>
+            
+<li>
+    <a href="../core_pseudocode/" class="dropdown-item">Pseudocode reference</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Simulation Tools package</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_sim-tools/" class="dropdown-item">Simulation Tools package</a>
+</li>
+            
+<li>
+    <a href="../core_abstractsimulationcomponent/" class="dropdown-item">AbstractSimulationComponent</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../core_workflow-sim/" class="dropdown-item">Workflow of component in simulation</a>
+</li>
+            
+<li>
+    <a href="../core_workflow-start-end/" class="dropdown-item">Workflow of start and end</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Communication</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_topics-queues-exchanges/" class="dropdown-item">Topics, queues and exchanges</a>
+</li>
+            
+<li>
+    <a href="../core_exchange-mgmt/" class="dropdown-item">Exchange, management</a>
+</li>
+            
+<li>
+    <a href="../core_exchange-sim/" class="dropdown-item">Exchange, simulation-specific</a>
+</li>
+            
+<li>
+    <a href="../core_topics/" class="dropdown-item">Topics (core)</a>
+</li>
+            
+<li>
+    <a href="../core_rabbitmq-reliability/" class="dropdown-item">Reliable messaging in RabbitMQ</a>
+</li>
+            
+<li>
+    <a href="../core_amqp-footprint/" class="dropdown-item">Footprint of AMQP items</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Message structures (core)</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_msg/" class="dropdown-item">Message structures (core)</a>
+</li>
+            
+<li>
+    <a href="../core_msgtype/" class="dropdown-item">Message type names (core)</a>
+</li>
+            
+<li>
+    <a href="../core_ucum/" class="dropdown-item">Units of measure (UCUM)</a>
+</li>
+            
+<li>
+    <a href="../core_msg-abstractmessage/" class="dropdown-item">Message - AbstractMessage</a>
+</li>
+            
+<li>
+    <a href="../core_msg-abstractresult/" class="dropdown-item">Message - AbstractResult</a>
+</li>
+            
+<li>
+    <a href="../core_msg-epoch/" class="dropdown-item">Message - Epoch</a>
+</li>
+            
+<li>
+    <a href="../core_msg-simstate/" class="dropdown-item">Message - SimState</a>
+</li>
+            
+<li>
+    <a href="../core_msg-start/" class="dropdown-item">Message - Start</a>
+</li>
+            
+<li>
+    <a href="../core_msg-status/" class="dropdown-item">Message - Status</a>
+</li>
+            
+<li>
+    <a href="../core_block-quantity/" class="dropdown-item">Block - Quantity</a>
+</li>
+            
+<li>
+    <a href="../core_block-quantity-array/" class="dropdown-item">Block - Quantity array</a>
+</li>
+            
+<li>
+    <a href="../core_block-time-series/" class="dropdown-item">Block - Time series</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Platforms internals</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../core_logging-system/" class="dropdown-item">Logging system</a>
+</li>
+            
+<li>
+    <a href="../core_logwriter/" class="dropdown-item">LogWriter</a>
+</li>
+            
+<li>
+    <a href="../core_platformmanager/" class="dropdown-item">Platform Manager</a>
+</li>
+            
+<li>
+    <a href="../core_lifecycle/" class="dropdown-item">Simulation lifecycle</a>
+</li>
+            
+<li>
+    <a href="../core_simulationmanager/" class="dropdown-item">Simulation Manager</a>
+</li>
+            
+<li>
+    <a href="../core_dummycomponent/" class="dropdown-item">Dummy Component</a>
+</li>
+            
+<li>
+    <a href="../core_amqpmathtool/" class="dropdown-item">AmqpMathToolConnector</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Energy domain <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../energy_overview/" class="dropdown-item">Overview</a>
+</li>
+                                    
+<li>
+    <a href="../energy_conventions/" class="dropdown-item">Energy-domain-specific conventions</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Components (energy)</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../energy_controller/" class="dropdown-item">Controller</a>
+</li>
+            
+<li>
+    <a href="../energy_distribution-management-system-dms/" class="dropdown-item">Distribution management system (DMS)</a>
+</li>
+            
+<li>
+    <a href="../energy_grid-dss/" class="dropdown-item">Grid (DSS)</a>
+</li>
+            
+<li>
+    <a href="../energy_economicdispatch/" class="dropdown-item">Economic Dispatch</a>
+</li>
+            
+<li>
+    <a href="../energy_priceforecaster/" class="dropdown-item">Price Forecaster</a>
+</li>
+            
+<li>
+    <a href="../energy_procem-lfm/" class="dropdown-item">Procem-LFM</a>
+</li>
+            
+<li>
+    <a href="../energy_resourceforecaster/" class="dropdown-item">Resource Forecaster</a>
+</li>
+            
+<li>
+    <a href="../energy_static-time-series-resource/" class="dropdown-item">Static time series resource</a>
+</li>
+            
+<li>
+    <a href="../energy_storage/" class="dropdown-item">Storage</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Message structures (energy)</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../energy_msg-controlstate-powersetpoint/" class="dropdown-item">ControlState.PowerSetpoint</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-dmsnetworkstatus-current/" class="dropdown-item">DMSNetworkStatus.Current</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-dmsnetworkstatus-voltage/" class="dropdown-item">DMSNetworkStatus.Voltage</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-flexibilityneed/" class="dropdown-item">FlexibilityNeed</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-init-cis-customerinfo/" class="dropdown-item">Init.CIS.CustomerInfo</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-init-nis-networkbusinfo/" class="dropdown-item">Init.NIS.NetworkBusInfo</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-init-nis-networkcomponentinfo/" class="dropdown-item">Init.NIS.NetworkComponentInfo</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-lfmmarketresult/" class="dropdown-item">LFMMarketResult</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-lfmoffering/" class="dropdown-item">LFMOffering</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-networkforecaststate-current/" class="dropdown-item">NetworkForecastState.Current</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-networkforecaststate-voltage/" class="dropdown-item">NetworkForecastState.Voltage</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-networkstate-current/" class="dropdown-item">NetworkState.Current</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-networkstate-loss/" class="dropdown-item">NetworkState.Loss</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-networkstate-voltage/" class="dropdown-item">NetworkState.Voltage</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-offer/" class="dropdown-item">Offer</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-priceforecaststate/" class="dropdown-item">PriceForecastState</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-request/" class="dropdown-item">Request</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-resourceforecaststate-dispatch/" class="dropdown-item">ResourceForecastState.Dispatch</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-resourceforecaststate-power/" class="dropdown-item">ResourceForecastState.Power</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-resourcestate/" class="dropdown-item">ResourceState</a>
+</li>
+            
+<li>
+    <a href="../energy_msg-selectedoffer/" class="dropdown-item">SelectedOffer</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active">Start message blocks</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../energy_msgtype/" class="dropdown-item">Message type names (energy)</a>
+</li>
+                                    
+<li>
+    <a href="../energy_software-pkg/" class="dropdown-item">Software packages</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Topics (energy)</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../energy_topics/" class="dropdown-item">Topics (energy)</a>
+</li>
+            
+<li>
+    <a href="../energy_topic-priceforecaststate/" class="dropdown-item">PriceForecastState.(MarketId).(ResourceId)</a>
+</li>
+            
+<li>
+    <a href="../energy_topic-resourceforecaststate/" class="dropdown-item">ResourceForecastState.(ResourceCategory).(ResourceId)</a>
+</li>
+            
+<li>
+    <a href="../energy_topic-resourcestate/" class="dropdown-item">ResourceState.(ResourceCategory).(ResourceId)</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Scenarios</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../energy_scenario-ec-demo/" class="dropdown-item">Energy community demo</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About... <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../about/" class="dropdown-item">About...</a>
+</li>
+                                    
+<li>
+    <a href="../maintenance-plan/" class="dropdown-item">Maintenance plan</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../energy_msg-selectedoffer/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../energy_msgtype/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#start-message-blocks" class="nav-link">Start message blocks</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#json-structure" class="nav-link">JSON structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#process-parameter-blocks" class="nav-link">Process parameter blocks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="start-message-blocks">Start message blocks</h1>
+<p>This page contains the domain-specific parameter blocks included in the start message (see <a href="../core_msg-start/">Start (message)</a>).</p>
+<h2 id="json-structure">JSON structure</h2>
+<pre><code class="language-nohighlight">{
+
+  &quot;ProcessParameters&quot; :
+  {
+    &quot;EconomicDispatch&quot;: // Include this if relevant
+    {
+      &quot;EconomicDispatchA&quot;: // Use a name because there can be multiple economic dispatches
+      {
+        &quot;Horizon&quot;: &quot;PT36H&quot;,  // optional 
+        &quot;Timestep&quot;: &quot;PT1H&quot;,  // optional
+        &quot;Resources&quot;: [
+          [&quot;StaticTimeSeriesResource&quot;, &quot;LoadA&quot;],
+          [&quot;StaticTimeSeriesResource&quot;, &quot;GeneratorA&quot;],
+          [&quot;StorageResource&quot;, &quot;storageA&quot;]
+        ],
+        &quot;Weights&quot;: {   // optional  -- See below for examples
+          ...
+        },
+        &quot;ParticipatingMarketId&quot;: [ &quot;MarketA&quot; ],    // LFM Market Id if applicable
+        &quot;CommitmentTime&quot;: &quot;12:00&quot;,
+        &quot;SkipOpenOffers&quot;: &quot;True&quot;
+      },
+      &quot;EconomicDispatchB&quot;:
+      {
+        &quot;Horizon&quot;: &quot;PT36H&quot;,  // optional 
+        &quot;Timestep&quot;: &quot;PT1H&quot;,  // optional 
+        &quot;Resources&quot;: [
+          [&quot;StaticTimeSeriesResource&quot;, &quot;LoadB&quot;],
+          [&quot;StaticTimeSeriesResource&quot;, &quot;GeneratorB&quot;],
+          [&quot;StorageResource&quot;, &quot;storageB&quot;],
+          [&quot;PriceForecaster&quot;, &quot;marketB&quot;]
+        ],
+        &quot;ParticipatingMarketId&quot;: [ &quot;MarketA&quot; ]  // optional
+      }
+    },
+
+    &quot;Grid&quot;: // Include this if relevant
+    {
+      &quot;GridA&quot;: // Use a name because there can be multiple grids
+      {
+        &quot;ModelName&quot; : &quot;set_model_name_or_identifier_here&quot;,
+        &quot;Resources&quot;: [
+           [&quot;LoadA&quot;,&quot;bus3&quot;],
+           [&quot;GeneratorA&quot;,&quot;bus5&quot;]
+        ],
+        &quot;Symmetrical&quot; : false, //can be omitted, default is false
+        &quot;MaxControlCount&quot; : 15 //can be omitted, default is 15
+      },
+      &quot;GridB&quot;:
+      {
+        &quot;ModelName&quot; : &quot;set_model_name_or_identifier_here&quot;,
+        &quot;Resources&quot; : [],
+        &quot;Symmetrical&quot; : false, //can be omitted, default is false
+        &quot;MaxControlCount&quot; : 15 //can be omitted, default is 15
+      }
+    },
+
+    &quot;PredictiveGridOptimization&quot;: // Include this if relevant
+    {
+      &quot;PredictiveGridOptimizationA&quot;: // Use a name because there can be multiple grids
+      {
+        &quot;MonitoredGridName&quot; : &quot;GridA&quot;,
+        &quot;FlexibilityNeedMargin&quot; : 0.2 ,
+        &quot;MaxVoltage&quot; : 1.05,
+        &quot;MinVoltage&quot; : 0.95,
+        &quot;UpperAmberBandVoltage&quot; : 0.01,
+        &quot;LowerAmberBandVoltage&quot; : 0.01,
+        &quot;OverloadingBaseline&quot; : 1,
+        &quot;AmberLoadingBaseline&quot; : 0.9
+      },
+      &quot;PredictiveGridOptimizationB&quot;:
+      {
+        &quot;MonitoredGridName&quot; : &quot;GridB&quot;,
+        &quot;RelativeSensitivity&quot; : 45 ,
+        &quot;FlexibilityNeedMargin&quot; : 0.2 ,
+        &quot;MaxVoltage&quot; : 1.05,
+        &quot;MinVoltage&quot; : 0.95,
+        &quot;UpperAmberBandVoltage&quot; : 0.01,
+        &quot;LowerAmberBandVoltage&quot; : 0.01,
+        &quot;OverloadingBaseline&quot; : 1,
+        &quot;AmberLoadingBaseline&quot; : 0.9
+      }
+    },
+
+    &quot;StateMonitoring&quot;: // Include this if relevant
+    {
+      &quot;SM_A&quot;: // Use a name because there can be multiple grids
+      {
+        &quot;MonitoredGridName&quot; : &quot;GridA&quot;,
+        &quot;MaxVoltage&quot; : 1.05,
+        &quot;MinVoltage&quot; : 0.95,
+        &quot;UpperAmberBandVoltage&quot; : 0.01,
+        &quot;LowerAmberBandVoltage&quot; : 0.01,
+        &quot;OverloadingBaseline&quot; : 1,
+        &quot;AmberLoadingBaseline&quot; : 0.9
+      },
+      &quot;SM_B&quot;:
+      {
+        &quot;MonitoredGridName&quot; : &quot;GridB&quot;,
+        &quot;MaxVoltage&quot; : 1.05,
+        &quot;MinVoltage&quot; : 0.95,
+        &quot;UpperAmberBandVoltage&quot; : 0.01,
+        &quot;LowerAmberBandVoltage&quot; : 0.01,
+        &quot;OverloadingBaseline&quot; : 1,
+        &quot;AmberLoadingBaseline&quot; : 0.9
+      }
+    },
+
+    &quot;StaticTimeSeriesResourceForecaster&quot;: // Include this if it is relevant
+    {
+      &quot;ResourceForecaster&quot;: // The identifier for the resource forecaster
+      {
+        &quot;ResourceForecastComponentIds&quot;: &quot;load1, generator1&quot;,
+        &quot;ResourceTypes&quot;: &quot;Load, Generator&quot;,
+        &quot;ResourceForecastStateCsvFolder&quot;: &quot;/resources/forecasts/&quot;
+      }
+    },
+
+    &quot;StaticTimeSeriesResource&quot;:  // Include this if it is relevant
+    {
+      &quot;LoadA&quot;:  // The identifier for the resource
+      {
+        &quot;ResourceType&quot;: &quot;Load&quot;,
+        &quot;ResourceStateFile&quot;: &quot;load.csv&quot;,
+        &quot;ResourceFileDelimiter&quot;: &quot;,&quot;  // optional, default value is &quot;,&quot;
+      },
+      &quot;GeneratorA&quot;:
+      {
+        &quot;ResourceType&quot;: &quot;Generator&quot;,
+        &quot;ResourceStateFile&quot;: &quot;generator.csv&quot;
+      }
+    },
+
+    &quot;PriceForecaster&quot;: // Include this if it is relevant
+    {
+      &quot;PriceForecasterA&quot;: // Use a name because there can be multiple price forecasters
+      {
+        &quot;PriceForecasterStateCsvFile&quot;: &quot;priceA.csv&quot;,
+        &quot;PriceForecasterStateCsvDelimiter&quot;: &quot;,&quot; // optional, default value is &quot;,&quot;
+      },
+      &quot;PriceForecasterB&quot;: 
+      {
+        &quot;PriceForecasterStateCsvFile&quot;: &quot;priceB.csv&quot;
+      }
+    },
+
+    &quot;StorageResource&quot;:  // Include this if it is relevant
+    {
+      &quot;storageA&quot;:  // The identifier for the storage
+      {
+        &quot;ResourceStateCsvFile&quot;: &quot;control.csv&quot;,
+        &quot;ResourceStateCsvDelimiter&quot;: &quot;,&quot;,
+        &quot;Bus&quot;: &quot;bus1&quot;,
+        &quot;ChargeRate&quot;: 100.0,
+        &quot;DischargeRate&quot;: 100.0,
+        &quot;InitialStateOfCharge&quot;: 50.0, 
+        &quot;KwhRated&quot;: 100.0,
+        &quot;DischargeEfficiency&quot;: 90.0,
+        &quot;ChargeEfficiency&quot;: 90.0,
+        &quot;KwRated&quot;: 100.0,
+        &quot;SelfDischarge&quot;: 0.0
+      }
+    }
+
+    &quot;ProcemLFM&quot;:
+    {
+      &quot;LFM1&quot;:
+      {
+        &quot;MarketOpeningTime&quot;: 14,
+        &quot;MarketClosingTime&quot;: 17,
+        &quot;FlexibilityProviderList&quot;: [&quot;economic-dispatch1&quot;,&quot;economic-dispatch1&quot;],
+        &quot;FlexibilityProcurerList&quot;: [&quot;pgo1&quot;]
+      }
+    }
+  }
+}
+</code></pre>
+<h2 id="process-parameter-blocks">Process parameter blocks</h2>
+<h3 id="economic-dispatch-block">Economic dispatch block</h3>
+<p>Note: the Platform Manager passes these parameters directly to the Economic Dispatch instance through environmental variables. They are included as part of the Start message to make the used parameters visible to the other components as well as to the Logging System.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Multiplicity</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horizon</td>
+<td>ISO 8601 duration; e.g. 36 hours: "PT36H"</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Optimisation problem horizon (length of time range). If omitted, the default (36 h) is applied. NOTE: This must be compatible with the received forecasts, i.e. regarding forecast length</td>
+</tr>
+<tr>
+<td>Timestep</td>
+<td>ISO 8601 duration; e.g. 1 hour interval: "PT1H" (DEFAULT) or 15 min: "PT15M"</td>
+<td>0..1 (OPTIONAL)</td>
+<td>The length of timestep. If omitted, the default (1 h) is applied. Note: This must be compatible with the received forecasts, i.e. regarding forecast resolution</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>N by 2 array of string</td>
+<td>1 (REQUIRED)</td>
+<td>Array of component keys and resources in the economic dispatch scenario. Component key identifies component type. Allowed keys (currently): "StaticTimeSeriesResource", "PriceForecaster", "StorageResource"</td>
+</tr>
+<tr>
+<td>Weights</td>
+<td>Dictionary with identifier for (storage) resource (or "default" if to be applied to all). Fields (1) TerminalSOCBound: Percentage (0-100), Default: 40.0. (2) TerminalSOCTarget: Percentage (0-100), Default: None. (3) TerminalWeight: Unitless, in effect EUR/kwh, Default: None</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Optimisation weights, See (1) below table</td>
+</tr>
+<tr>
+<td>ParticipatingMarketId</td>
+<td>String</td>
+<td>0..1 (OPTIONAL), REQUIRED if LFM is to be used</td>
+<td>MarketId for LFM. Required for participation in LFM. (Name is not checked - will operate if none is given. ED epoch "Ready" status is dependent on LFM "Ready" status, so will never be ready if wrong name is given.)</td>
+</tr>
+<tr>
+<td>CommitmentTime</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Time at which day-ahead market closes (for next day). Given as a string with hours and minutes (must coincide with start time of epoch). For example "12:00". Commits to next day electricity market values at 12:00. Next day: midnight to midnight.</td>
+</tr>
+<tr>
+<td>SkipOpenOffers</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Ignores open offers when calculating LFM offers. String valued. Accepted values: "True"/"False".</td>
+</tr>
+</tbody>
+</table>
+<p>(1) Optimisation weights:
+- Case 1: TerminalSOCBound given and TerminalSOCTarget + TerminalWeight not given.
+  - Limits the storage state on the last time instant in optimisation horizon with the lower bound TerminalSOCBound</p>
+<p>For example:</p>
+<pre><code class="language-nohighlight">&quot;Weights&quot;:  
+  {
+    &quot;storageA&quot;:  // Identifier for resource component  
+    {
+      &quot;TerminalSOCBound&quot;: 50.0
+    }
+  }
+</code></pre>
+<ul>
+<li>Case 2: TerminalSOCBound, TerminalSOCTarget, TerminalWeight given</li>
+<li>Limits the storage state on the last time instant with the lower bound of TerminalSOCTarget - TerminalSOCBound</li>
+<li>Limits the storage state on the last time instant with the upper bound of TerminalSOCTarget + TerminalSOCBound (i.e. maximum deviation)</li>
+<li>Deviation from TerminalSOCTarget on last time instant minimized in either direction by linearly weighting with TerminalWeight</li>
+</ul>
+<p>For example:</p>
+<pre><code class="language-nohighlight">&quot;Weights&quot;: 
+  {
+    &quot;storageB&quot;:  // Identifier for resource component  
+    {
+      &quot;TerminalSOCBound&quot;: 10.0,
+      &quot;TerminalSOCTarget&quot;: 40.0,
+      &quot;TerminalWeight&quot;: 30.0
+    }
+  }
+</code></pre>
+<h3 id="grid-block">Grid block</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Multiplicity</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ModelName</td>
+<td>String</td>
+<td>1 (REQUIRED)</td>
+<td>String referring to a network model in Grid model library. If erroneous or missing will cause an error in Grid process. Case-insensitive.</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>N by 2 array of string</td>
+<td>0..1 (OPTIONALish)</td>
+<td>Array of resources and buses to which they are connected that the grid instance should consider. If omitted grid collects all resource names from any parameter block thats name ends in "Resource" and uses their default locations in the grid model. If no default location exists the resource is not considered. NOTE: It's very dangerous to omit this field!!!</td>
+</tr>
+<tr>
+<td>Symmetrical</td>
+<td>Boolean</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Indicator whether or not the grid should be considered symmetrical. If omitted assumed FALSE.</td>
+</tr>
+<tr>
+<td>MaxControlCount</td>
+<td>Integer ( &gt; 0 )</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Maximum number of control iteration allowed for Grid's internally modelled controllers per loadflow. Default if omitted is 15. Purpose of this variable is to interrupt set point hunting and ensure convergence. NOTE: This variable only impacts the Grid modelled controllers, external controllers have to keep their own iteration count.</td>
+</tr>
+<tr>
+<td>ModelVoltageBand</td>
+<td>Float ( &lt; 1, &gt; 0 )</td>
+<td>0..1 (OPTIONAL)</td>
+<td>The +/- band of voltages where nominal voltage dependency of resources is assumed to apply e.g. ModelVoltageBand=0.1 would assume that the dependency models apply between 0.9 to 1.1 pu. Beyond this band the model is assumed to revert to constant impedance to ensure convergence. If omitted 0.15 is used.</td>
+</tr>
+<tr>
+<td>ForecastFlows</td>
+<td>Boolean</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Indicator whether or not the Grid should also calculate forecasted load flows. Can be omitted, default is false. Set true if PGO is part of the simulation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="predictivegridoptimization-block">PredictiveGridOptimization block</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Multiplicity</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MonitoredGridName</td>
+<td>String</td>
+<td>1 (REQUIRED)</td>
+<td>String referring to a Grid instance in the running simulation (e.g. "GridA")</td>
+</tr>
+<tr>
+<td>RelativeSensitivity</td>
+<td>Integer</td>
+<td>1 (REQUIRED)</td>
+<td>RelativeRessitivity (RS) defines the size of a congestion area. 100 means the largest possible. 0 means the smallest possible. 0&lt;=RS=&lt;100</td>
+</tr>
+<tr>
+<td>FlexibilityNeedMargin</td>
+<td>Float (  &gt; -1, &lt; 1 )</td>
+<td>1 (REQUIRED)</td>
+<td>FlexibilityNeedMargin (FNM) defines adjustment of the flexibility need's volume: if positive, over-purchase  if negative, under-purchase  if zero, neutral</td>
+</tr>
+<tr>
+<td>MaxVoltage</td>
+<td>Float (  &gt; 0, &gt; MinVoltage )</td>
+<td>1 (REQUIRED)</td>
+<td>Maximum allowable voltage for customer connected nodes (p.u.). Violation of this voltage causes RED condition. (identical for both MV and LV lines)</td>
+</tr>
+<tr>
+<td>MinVoltage</td>
+<td>Float (  &gt; 0, &lt; MaxVoltage)</td>
+<td>1 (REQUIRED)</td>
+<td>Minimum allowable voltage for customer connected nodes (p.u.). Violation of this voltage causes RED condition. (identical for both MV and LV lines)</td>
+</tr>
+<tr>
+<td>UpperAmberBandVoltage</td>
+<td>Float (MaxVoltage - UpperAmberBand &gt; MinVoltage + LowerAmberBand, &gt;0)</td>
+<td>1 (REQUIRED)</td>
+<td>Voltage margin for AMBER condition of overvoltage. (p.u.)</td>
+</tr>
+<tr>
+<td>LowerAmberBandVoltage</td>
+<td>Float (MaxVoltage - UpperAmberBand &gt; MinVoltage + LowerAmberBand, &gt;0)</td>
+<td>1 (REQUIRED)</td>
+<td>Voltage margin for AMBER condition of undervoltage. (p.u.)</td>
+</tr>
+<tr>
+<td>OverloadingBaseline</td>
+<td>Float ( &gt;0 )</td>
+<td>1 (REQUIRED)</td>
+<td>Component loading limit that is considered RED condition (typically 1, corresponding to 100% loading).</td>
+</tr>
+<tr>
+<td>AmberloadingBaseline</td>
+<td>Float ( &gt;0, &lt;= OverloadingBaseline)</td>
+<td>1 (REQUIRED)</td>
+<td>Component loading limit that is considered AMBER condition (e.g., 0.9)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="statemonitoring-block">StateMonitoring block</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Multiplicity</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MonitoredGridName</td>
+<td>String</td>
+<td>1 (REQUIRED)</td>
+<td>String referring to a Grid instance in the running simulation (e.g. "GridA")</td>
+</tr>
+<tr>
+<td>MaxVoltage</td>
+<td>Float (  &gt; 0, &gt; MinVoltage )</td>
+<td>1 (REQUIRED)</td>
+<td>Maximum allowable voltage for customer connected nodes (p.u.). Violation of this voltage causes RED condition. (identical for both MV and LV lines)</td>
+</tr>
+<tr>
+<td>MinVoltage</td>
+<td>Float (  &gt; 0, &lt; MaxVoltage)</td>
+<td>1 (REQUIRED)</td>
+<td>Minimum allowable voltage for customer connected nodes (p.u.). Violation of this voltage causes RED condition. (identical for both MV and LV lines)</td>
+</tr>
+<tr>
+<td>UpperAmberBandVoltage</td>
+<td>Float (MaxVoltage - UpperAmberBand &gt; MinVoltage + LowerAmberBand, &gt;0)</td>
+<td>1 (REQUIRED)</td>
+<td>Voltage margin for AMBER condition of overvoltage. (p.u.)</td>
+</tr>
+<tr>
+<td>LowerAmberBandVoltage</td>
+<td>Float (MaxVoltage - UpperAmberBand &gt; MinVoltage + LowerAmberBand, &gt;0)</td>
+<td>1 (REQUIRED)</td>
+<td>Voltage margin for AMBER condition of undervoltage. (p.u.)</td>
+</tr>
+<tr>
+<td>OverloadingBaseline</td>
+<td>Float ( &gt;0 )</td>
+<td>1 (REQUIRED)</td>
+<td>Component loading limit that is considered RED condition (typically 1, corresponding to 100% loading)</td>
+</tr>
+<tr>
+<td>AmberloadingBaseline</td>
+<td>Float ( &gt;0, &lt;= OverloadingBaseline)</td>
+<td>1 (REQUIRED)</td>
+<td>Component loading limit that is considered AMBER condition (e.g., 0.9)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="static-time-series-block">Static time series block</h3>
+<p>Note: the Platform Manager passes these parameters directly to the Static Time Series Resource instance through environmental variables. They are included as part of the Start message to make the used parameters visible to the other components as well as to the Logging System.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Multiplicity</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ResourceType</td>
+<td>String</td>
+<td>1(REQUIRED)</td>
+<td>The type of the resource. MUST be either "Load" or "Resource".</td>
+</tr>
+<tr>
+<td>ResourceStateFile</td>
+<td>String</td>
+<td>1 (REQUIRED)</td>
+<td>The name of the CSV file containing the static time series.</td>
+</tr>
+<tr>
+<td>ResourceFileDelimiter</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>The delimiter that is used in the CSV file. The default delimiter is comma, i.e. ",".</td>
+</tr>
+</tbody>
+</table>
+<h3 id="storage-resource-block">Storage resource block</h3>
+<p>Note: the Platform Manager passes these parameters directly to the Storage Resource instance through environmental variables. They are included as part of the Start message to make the used parameters visible to the other components as well as to the Logging System.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Multiplicity</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ResourceStateFile</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>The name of the CSV file containing control state information.</td>
+</tr>
+<tr>
+<td>ResourceStateDelimiter</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>The delimiter that is used in the CSV file. The default delimiter is comma, i.e. ",".</td>
+</tr>
+<tr>
+<td>Bus</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Name of bus to which the resource is connected. Required if ResourceStateCsvFile is not given.</td>
+</tr>
+<tr>
+<td>Node</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Node that 1-phase resource is connected to. Possible values 1, 2 and 3. Used if file state source is not used and if then this is not specified then it is assumed that the resource is 3-phase resource.</td>
+</tr>
+<tr>
+<td>ChargeRate</td>
+<td>Float</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Charging rate (input power) in Percent of rated kW. Default value 100.0.</td>
+</tr>
+<tr>
+<td>DischargeRate</td>
+<td>Float</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Discharge rate (output power) in Percent of rated kW. Default value 100.0.</td>
+</tr>
+<tr>
+<td>InitialStateOfCharge</td>
+<td>Float</td>
+<td>1 (REQUIRED)</td>
+<td>Initial amount of energy stored, %.</td>
+</tr>
+<tr>
+<td>KwhRated</td>
+<td>Float</td>
+<td>1 (REQUIRED)</td>
+<td>Rated storage capacity in kWh.</td>
+</tr>
+<tr>
+<td>DischargeEfficiency</td>
+<td>Float</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Percent, efficiency for discharging the storage. Default value 90.0.</td>
+</tr>
+<tr>
+<td>ChargeEfficiency</td>
+<td>Float</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Percent, efficiency for charging the storage. Default value 90.0.</td>
+</tr>
+<tr>
+<td>KwRated</td>
+<td>Float</td>
+<td>1 (REQUIRED)</td>
+<td>kW rating of power output.</td>
+</tr>
+<tr>
+<td>SelfDischarge</td>
+<td>Float</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Percent of rated kWh drained from storage while idling. Default value 0.0.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="static-time-series-resource-forecaster-block">Static Time Series Resource Forecaster block</h3>
+<p>Note: the Platform Manager passes these parameters directly to the Static Time Series Resource Forecaster instance through environmental variables. They are included as part of the Start message to make the used parameters visible to the other components as well as to the Logging System.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Multiplicity</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ResourceForecastComponentIds</td>
+<td>String</td>
+<td>1 (REQUIRED)</td>
+<td>List names (strings) of forecasted resources. This information should match with csv file names that contain resource forecast state information.</td>
+</tr>
+<tr>
+<td>ResourceTypes</td>
+<td>String</td>
+<td>1 (REQUIRED)</td>
+<td>List types (strings) of forecasted resources. Accepted values are Generator or Load.</td>
+</tr>
+<tr>
+<td>ResourceForecastStateCsvFolder</td>
+<td>String</td>
+<td>1 (REQUIRED)</td>
+<td>Location of the folder that contains csv files. Csv files contain the resource forecast state information used in the simulation. Relative file paths are in relation to the current working directory.</td>
+</tr>
+<tr>
+<td>ResourceStateCsvDelimiter</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>The delimiter that is used in the CSV file. The default delimiter is comma, i.e. ",".</td>
+</tr>
+<tr>
+<td>ResourceType</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>Type of this resource. Default is "ResourceForecaster".</td>
+</tr>
+<tr>
+<td>ResourceForecastTopic</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>The upper level topic under whose subtopics the resource states are published. If this environment variable is not present "ResourceForecastState" is used.</td>
+</tr>
+<tr>
+<td>ForecastHorizon</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>If this environment variable is not present then default "PT36H" is used.</td>
+</tr>
+<tr>
+<td>UnitOfMeasure</td>
+<td>String</td>
+<td>0..1 (OPTIONAL)</td>
+<td>If this environment variable is not present then default "kW" is used.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lfm-block">LFM block</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Multiplicity</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MarketOpeningTime</td>
+<td>Integer [0 ... 24]</td>
+<td>1 (REQUIRED)</td>
+<td>Hour of day when market opens</td>
+</tr>
+<tr>
+<td>MarketClosingTime</td>
+<td>Integer [0 ... 24]</td>
+<td>1 (REQUIRED)</td>
+<td>Hour of day when market closes</td>
+</tr>
+<tr>
+<td>FlexibilityProviderList</td>
+<td>Array of String</td>
+<td>1 (REQUIRED)</td>
+<td>List of SourceProcessIds for processes that are expected to send FlexibilityNeed msgs</td>
+</tr>
+<tr>
+<td>FlexibilityProcurerList</td>
+<td>Array of String</td>
+<td>1 (REQUIRED)</td>
+<td>List of SourceProcessIds for processes that are expected to send Offer msgs</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>SimCES | Simulation Environment of Complex Energy System</p>
+                <p>Copyright &copy; 2021 Tampere University and VTT Technical Research Centre of Finland</p>
+            <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a> [<a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC2119</a>] [<a href="https://datatracker.ietf.org/doc/html/rfc8174">RFC8174</a>] when, and only when, they appear in all capitals, as shown here.</p>
+            <p>Get source code from GitHub: <a href="https://github.com/simcesplatform">https://github.com/simcesplatform</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
