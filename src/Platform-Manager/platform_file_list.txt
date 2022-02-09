@@ -53,9 +53,7 @@ simulation_configuration_test.yml
 component_manifest.yml
 simulation_configuration_template.yml
 instructions/Dockerfile-template
-instructions/platform_installation.md
 instructions/requirements.txt
-instructions/running_simulation.md
 instructions/start_message_template.json
 
 # files related to accessing the logging output produced by the simulation components
