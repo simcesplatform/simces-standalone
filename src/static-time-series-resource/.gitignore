@@ -1,0 +1,7 @@
+.env
+.winenv
+.project
+.pydevproject
+.settings
+**/*.__pyc
+**/__pycache__

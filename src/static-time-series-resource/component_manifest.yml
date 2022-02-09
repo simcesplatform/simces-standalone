@@ -1,0 +1,17 @@
+# The component manifest file for the Static Time Series Resource component
+
+Name: StaticTimeSeriesResource
+Type: platform
+Description: "Static Time Series Resource component for the SimCes Platform"
+DockerImage: ghcr.io/simcesplatform/static-time-series-resource
+Attributes:
+    ResourceType:
+        Environment: RESOURCE_TYPE
+        Optional: false
+    ResourceStateFile:
+        Environment: RESOURCE_STATE_CSV_FILE
+        Optional: false
+    ResourceFileDelimiter:
+        Environment: RESOURCE_STATE_CSV_DELIMITER
+        Optional: true
+        Default: ","

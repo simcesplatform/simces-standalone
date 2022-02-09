@@ -1,0 +1,37 @@
+version: '3.5'
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3.8.4-management
+    restart: always
+    logging:
+      driver: "none"
+    expose:
+      - "5673"
+      - "15672"
+
+  static_time_series_resource:
+    image: static_time_series_resource
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    command: [ "python3", "-u", "-m", "unittest" ]
+    depends_on:
+      - rabbitmq
+    environment:
+      - SIMULATION_LOG_FILE=logs/logfile_static.log
+      - SIMULATION_LOG_LEVEL=20
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_SSL=false
+      - RABBITMQ_EXCHANGE=procem.static_time_series_resource
+      - RABBITMQ_EXCHANGE_AUTODELETE=false
+      - RABBITMQ_EXCHANGE_DURABLE=false 
+    volumes:
+      - simulation_logs:/logs
+
+volumes:
+  simulation_logs:
+    name: simulation_logs_static_time_series_resource_test

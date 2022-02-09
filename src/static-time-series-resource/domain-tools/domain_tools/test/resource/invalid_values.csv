@@ -1,0 +1,4 @@
+RealPower,ReactivePower,CustomerId,Node
+-,-1,GridA-1,
+-11.5,2..0,GridA-1,1
+-9.1,0,GridA-1,foo
