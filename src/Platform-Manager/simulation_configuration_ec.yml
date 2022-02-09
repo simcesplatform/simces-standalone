@@ -1,0 +1,45 @@
+Simulation:
+    Name: "Energy community demo"
+    Description: "This scenario describes the behavior of a small rural energy community of four detached houses. The houses have no controllable loads or storages but two of them have a small scale PV systems installed and one has a electric vehicle charging. Scenario spans over one day with hourly resolution (epochs)."
+    InitialStartTime: "2020-06-25T00:00:00.000+03:00"
+    EpochLength: 3600
+    MaxEpochCount: 24
+
+    # Optional settings for the Simulation Manager
+    ManagerName: "simulation-manager"
+    EpochTimerInterval: 30
+    MaxEpochResendCount: 5
+
+    # Optional settings for the Log Writer
+    MessageBufferMaxDocumentCount: 10
+    MessageBufferMaxInterval: 5.0
+
+Components:
+    Dummy:
+        # Include one dummy component to slow down the simulation
+        dummy:
+            MinSleepTime: 2.5
+            MaxSleepTime: 5.0
+
+    StaticTimeSeriesResource:
+        load_1:
+            ResourceType: Load
+            ResourceStateFile: /resources/Load1.csv
+        load_2:
+            ResourceType: Load
+            ResourceStateFile: /resources/Load2.csv
+        load_3:
+            ResourceType: Load
+            ResourceStateFile: /resources/Load3.csv
+        load_4:
+            ResourceType: Load
+            ResourceStateFile: /resources/Load4.csv
+        electric_vehicle:
+            ResourceType: Load
+            ResourceStateFile: /resources/EV.csv
+        pv_small:
+            ResourceType: Generator
+            ResourceStateFile: /resources/PV_small.csv
+        pv_large:
+            ResourceType: Generator
+            ResourceStateFile: /resources/PV_large.csv

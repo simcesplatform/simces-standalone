@@ -1,0 +1,75 @@
+# The file list for all the required files required for the Simulation platform.
+# lines started with a hash character are ignored
+
+# the script file for fetching all these files, commented out because it needs to downloaded manually
+# fetch_platform_code.sh
+
+# the readme file for the Platform Manager
+README.md
+
+# settings files that are used to setup the platform for running simulations
+access_tokens.env
+common.env
+mongodb.env
+rabbitmq.env
+
+docker_images_core.txt
+docker_images_domain.txt
+local_manifest_files.txt
+
+background/env/components_logwriter.env
+background/env/components_mongodb.env
+background/env/mongo_express.env
+background/env/mongodb.env
+background/env/rabbitmq.env
+
+components/github_server_core.yml
+components/github_server_domain.yml
+components/gitlab_server_core.yml
+components/gitlab_server_domain.yml
+
+# Docker compose files that used to start the required containers
+docker-compose.yml
+background/docker-compose-background.yml
+fetch/docker-compose-fetch.yml
+
+# Bash script files that are helpers to install the platform and start simulations
+copy_file_to_volume.sh
+copy_folder_to_volume.sh
+follow_simulation.sh
+platform_core_setup.sh
+platform_domain_setup.sh
+pull_docker_images.sh
+start_simulation.sh
+stop_simulation.sh
+fetch_local_manifests.sh
+
+# example simulation configurations
+simulation_configuration_ec.yml
+simulation_configuration_grid.yml
+simulation_configuration_test.yml
+
+# template files and files containing instructions
+component_manifest.yml
+simulation_configuration_template.yml
+instructions/Dockerfile-template
+instructions/platform_installation.md
+instructions/requirements.txt
+instructions/running_simulation.md
+instructions/start_message_template.json
+
+# files related to accessing the logging output produced by the simulation components
+logs/README.md
+logs/copy_logs.sh
+
+# file to ensure that the manifests folder is created
+manifests/.gitignore
+
+# resource files for example simulations
+resources/EV.csv
+resources/Load1.csv
+resources/Load2.csv
+resources/Load3.csv
+resources/Load4.csv
+resources/PV_large.csv
+resources/PV_small.csv

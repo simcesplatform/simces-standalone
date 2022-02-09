@@ -1,0 +1,86 @@
+version: '3.5'
+
+services:
+
+    rabbitmq:
+        image: rabbitmq:3.8.4-management
+        container_name: simces_rabbitmq
+        restart: always
+        ports:
+            - 5672:5672
+            - 15672:15672
+        env_file:
+            - env/rabbitmq.env
+        networks:
+            - rabbitmq_network
+
+    mongodb:
+        image: mongo:4.2.7
+        container_name: simces_mongodb
+        restart: always
+        expose:
+            - 27017
+        env_file:
+            - env/mongodb.env
+        volumes:
+            - mongodb_data:/data/db
+        networks:
+            - mongodb_network
+
+    mongo_express:
+        image: ghcr.io/simcesplatform/mongo-express:latest
+        container_name: simces_mongo_express
+        restart: always
+        depends_on:
+            - mongodb
+        env_file:
+            - env/mongo_express.env
+        ports:
+            - 8081:8081
+        networks:
+            - mongodb_network
+
+    log_reader:
+        image: ghcr.io/simcesplatform/logreader
+        container_name: simces_log_reader
+        restart: always
+        depends_on:
+            - mongodb
+        env_file:
+            - env/components_mongodb.env
+        environment:
+            - MONGODB_APPNAME=log_writer
+        ports:
+            - 8080:8080
+        networks:
+            - mongodb_network
+
+    log_writer_management:
+        image: ghcr.io/simcesplatform/logwriter
+        container_name: simces_log_writer_management
+        restart: always
+        depends_on:
+            - mongodb
+        env_file:
+            - env/components_mongodb.env
+            - env/components_logwriter.env
+        volumes:
+            - simulation_logs:/logs
+        networks:
+            - mongodb_network
+            - rabbitmq_network
+volumes:
+    mongodb_data:
+        external: true
+        name: simces_mongodb_data
+    simulation_logs:
+        external: true
+        name: simces_simulation_logs
+
+networks:
+    rabbitmq_network:
+        external: true
+        name: simces_rabbitmq_network
+    mongodb_network:
+        external: true
+        name: simces_mongodb_network

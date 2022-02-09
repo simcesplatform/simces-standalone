@@ -1,0 +1,10 @@
+# The file list for the Docker images for the core components of the simulation platform.
+# lines started with a hash character are ignored
+
+ghcr.io/simcesplatform/platform-manager:latest
+ghcr.io/simcesplatform/simulation-manager:latest
+ghcr.io/simcesplatform/logwriter:latest
+ghcr.io/simcesplatform/logreader:latest
+ghcr.io/simcesplatform/dummy-component:latest
+ghcr.io/simcesplatform/manifest-fetcher:latest
+ghcr.io/simcesplatform/mongo-express:latest

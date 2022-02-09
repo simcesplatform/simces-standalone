@@ -1,0 +1,19 @@
+FROM python:3.7.9
+LABEL org.opencontainers.image.source https://github.com/simcesplatform/platform-manager
+LABEL org.opencontainers.image.description "Docker image for the manifest file fetcher. Docker image source: Dockerfile-fetch"
+
+RUN mkdir -p /fetch
+RUN mkdir -p /init
+RUN mkdir -p /simulation-tools
+
+# copy the source code files to the container
+COPY fetch/ /fetch/
+COPY init/ /init/
+COPY simulation-tools/ /simulation-tools/
+
+# install the python libraries
+RUN pip install -r /fetch/requirements.txt
+
+WORKDIR /
+
+CMD [ "python", "-u", "-m", "fetch.fetch" ]

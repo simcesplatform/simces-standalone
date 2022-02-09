@@ -1,0 +1,15 @@
+{
+    "executionEnvironments": [
+        {
+            "root": ".",
+            "extraPaths": [
+                "simulation-tools"
+            ]
+        }
+    ],
+    "ignore": [
+        "legacy"
+    ],
+    "typeCheckingMode": "basic",
+    "reportPropertyTypeMismatch": "none"
+}

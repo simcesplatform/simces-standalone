@@ -1,0 +1,4 @@
+# The file list for the Docker images for the domain components of the simulation platform.
+# lines started with a hash character are ignored
+
+ghcr.io/simcesplatform/static-time-series-resource:latest

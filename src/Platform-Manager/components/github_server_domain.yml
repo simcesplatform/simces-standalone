@@ -1,0 +1,10 @@
+# Example for defining the GitHub repositories where manifest files should be fetched
+# This file contains the manifest files for the domain components
+
+Repositories:
+    - simcesplatform/static-time-series-resource
+
+Type: GitHub
+
+# only needed for private repositories, uncomment if necessary
+# AccessToken: ${GITHUB_ACCESS_TOKEN}

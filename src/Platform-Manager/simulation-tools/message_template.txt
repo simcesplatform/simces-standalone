@@ -1,0 +1,99 @@
+class <message type>(AbstractResultMessage):
+    CLASS_MESSAGE_TYPE = <message attribute "Type" as defined in the documentation>
+    MESSAGE_TYPE_CHECK = True
+
+    # all attributes specific that are added to the AbstractResult should be introduced here
+    MESSAGE_ATTRIBUTES = {
+        <JSON attribute name>: <corresponding message class property name>,
+        ...
+    }
+    # list all attributes that are optional here (use the JSON attribute names)
+    OPTIONAL_ATTRIBUTES = [<optional attribute 1>, ...]
+
+    # all attributes that are using the Quantity block format should be listed here
+    QUANTITY_BLOCK_ATTRIBUTES = {
+        <JSON attribute name>: <the expected unit in UCUM format>,
+        ...
+    }
+
+    # all attributes that are using the Quantity array block format should be listed here
+    QUANTITY_ARRAY_BLOCK_ATTRIBUTES = {
+        <JSON attribute name>: <the expected unit in UCUM format>,
+        ...
+    }
+
+    # all attributes that are using the Time series block format should be listed here
+    TIMESERIES_BLOCK_ATTRIBUTES = [<timeseries attribute 1>, ...]
+
+    # always include these definitions to update the full list of attributes to these class variables
+    # no need to modify anything here
+    MESSAGE_ATTRIBUTES_FULL = {
+        **AbstractResultMessage.MESSAGE_ATTRIBUTES_FULL,
+        **MESSAGE_ATTRIBUTES
+    }
+    OPTIONAL_ATTRIBUTES_FULL = AbstractResultMessage.OPTIONAL_ATTRIBUTES_FULL + OPTIONAL_ATTRIBUTES
+    QUANTITY_BLOCK_ATTRIBUTES_FULL = {
+        **AbstractResultMessage.QUANTITY_BLOCK_ATTRIBUTES_FULL,
+        **QUANTITY_BLOCK_ATTRIBUTES
+    }
+    QUANTITY_ARRAY_BLOCK_ATTRIBUTES_FULL = {
+        **AbstractResultMessage.QUANTITY_ARRAY_BLOCK_ATTRIBUTES_FULL,
+        **QUANTITY_ARRAY_BLOCK_ATTRIBUTES
+    }
+    TIMESERIES_BLOCK_ATTRIBUTES_FULL = (
+        AbstractResultMessage.TIMESERIES_BLOCK_ATTRIBUTES_FULL +
+        TIMESERIES_BLOCK_ATTRIBUTES
+    )
+
+    # for each attributes added by this message type provide a property function to get the value of the attribute
+    # the name of the properties must correspond to the names given in MESSAGE_ATTRIBUTES
+    # template for one property:
+    @property
+    def <property name 1>(self) -> <the type for the attribute, i.e. int, float, str, ...>:
+        return self.__<property name 1>
+
+    # property for all the other attributes
+    ...
+
+    # for each attributes added by this message type provide a property setter function to set the value of the attribute
+    # the name of the properties must correspond to the names given in MESSAGE_ATTRIBUTES
+    # template for one property setter:
+    @<property name 1>.setter
+    def <property name 1>(self, <parameter name>: <the Python types you can use to set the value>):
+        if self._check_<property name 1>(<parameter name>):
+            self.__<property name 1> = <the value calculated based on the value of <parameter name>>
+        else:
+            raise <message exception type (MessageError or one its child classes)>(<appropriate error message string>)
+
+    # property setters for all the other attributes
+    ...
+
+    # provide a new implementation for the "test of message equality" function
+    def __eq__(self, other: Any) -> bool:
+        return (
+            super().__eq__(other) and
+            isinstance(other, <message type>) and
+            self.<property name 1> == other.<property_name 1> and
+            ...
+            self.<property name n> == other.<property_name n>
+        )
+
+    # Provide a class method for each attribute added by this message type to check if the value is acceptable
+    # These should return True only when the given parameter corresponds to an acceptable value for the attribute
+    @classmethod
+    def _check_<property name 1>(cls, <parameter name>: <the Python types you can use to set the value>) -> bool:
+        # return either False or True based on the the value of the <parameter_name>
+
+    # check methods for the other attributes
+    ...
+
+    # Provide a new implementation for the class method from_json method
+    # Only the return type should be changed here
+    @classmethod
+    def from_json(cls, json_message: Dict[str, Any]) -> Union[<message type>, None]:
+        if cls.validate_json(json_message):
+            return cls(**json_message)
+        return None
+
+
+<message type>.register_to_factory()

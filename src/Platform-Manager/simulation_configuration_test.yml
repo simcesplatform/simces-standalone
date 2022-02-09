@@ -1,0 +1,19 @@
+Simulation:
+    Name: "Test simulation"
+    Description: "Test simulation for testing that the core components have been installed correctly."
+    InitialStartTime: "2020-01-01T00:00:00.000Z"
+    EpochLength: 3600
+    MaxEpochCount: 12
+
+Components:
+    Dummy:
+        # Dummy component called "slow_dummy" using the default values for all parameters
+        slow_dummy:
+
+        # 2 Dummy components called "fast_dummy_1" and "fast_dummy_2" using shorter wait times than the default values
+        # and a 20 percent chance of the Status message they send containing a warning
+        fast_dummy:
+            duplication_count: 2
+            MinSleepTime: 0.5
+            MaxSleepTime: 1.5
+            WarningChance: 0.2

@@ -1,0 +1,60 @@
+# The parameters for the core components, i.e. Simulation Manager and Log Writer
+Simulation:
+    Name: "Insert simulation name here"
+    Description: "Insert simulation description here"
+    # The start time for the first epoch in ISO 8601 format
+    InitialStartTime: "2020-01-01T00:00:00.000Z"
+    # The length of each epoch in seconds (3600 seconds = 1 hour)
+    EpochLength: 3600
+    # Maximum number of epochs in the simulation
+    MaxEpochCount: 24
+
+    # Optional settings for the Simulation Manager, uncomment and change the value to override the default value
+    # See the Start message specification for information about each parameter:
+    # https://simcesplatform.github.io/core_msg-start/#simulation-manager-block
+    #
+    # ManagerName: "SimulationManager"
+    # EpochTimerInterval: 120
+    # MaxEpochResendCount: 5
+
+    # Optional settings for the Log Writer, uncomment and change the value to override the default value
+    # See the Start message specification for information about each parameter:
+    # https://simcesplatform.github.io/core_msg-start/#dummy-component-block
+    #
+    # MessageBufferMaxDocumentCount: 20
+    # MessageBufferMaxInterval: 10.0
+
+# The participating components and their parameters
+Components:
+    # Each component type has its own subsection, the names used here must be registered to the Platform Manager
+    ComponentTypeA:
+
+        # Each component of type ComponentTypeA participating in the simulation is defined in its own subsection
+        # The name of each subsection defines the name for the component within the simulation
+        ComponentA1:
+            # The parameters defined here correspond to the parameters used in the Start message
+            NumericParameter: 42
+            StringParameter: "First"
+
+        ComponentA2:
+            NumericParameter: 100
+            StringParameter: "Second"
+
+    # Example of second component type specification with 1 participating component instance
+    ComponentTypeB:
+        ComponentB1:
+            Parameter1: 1
+            Parameter2: 2
+            Parameter3: 3
+
+    # Example of third component type specification
+    ComponentTypeC:
+
+        # Component that uses the default values for all parameters
+        DefaultC:
+
+        # Specification for 3 components that all use identical value for parameter "SomeSetting"
+        ComponentC:
+            # duplication_count is reserved keyword and cannot be used as a normal parameter for a component instance
+            duplication_count: 3
+            SomeSetting: "test-mode"

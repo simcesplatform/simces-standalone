@@ -1,0 +1,60 @@
+{
+    "Type" : "Start",
+    "Timestamp" : "2020-12-21T06:15:07.111Z",
+    "SimulationId" : "2020-12-21T06:15:01.234Z",
+    "SimulationSpecificExchange" : "procem.20201221-061501-234",
+    "SimulationName" : "Insert simulation name here",
+    "SimulationDescription" : "Insert simulation description here",
+    "ProcessParameters" : {
+        "SimulationManager": {
+            "ManagerName": "SimulationManager",
+            "InitialStartTime": "2020-01-01T00:00:00.000Z",
+            "EpochLength": 3600,
+            "MaxEpochCount": 24,
+            "Components": [
+                "ComponentA1",
+                "ComponentA2",
+                "ComponentB",
+                "DefaultC",
+                "ComponentC_1",
+                "ComponentC_2",
+                "ComponentC_3"
+            ],
+            "EpochTimerInterval": 120.0,
+            "MaxEpochResendCount": 5
+        },
+        "LogWriter": {
+            "MessageBufferMaxDocumentCount": 20,
+            "MessageBufferMaxInterval": 10.0
+        },
+        "ComponentTypeA": {
+            "ComponentA1": {
+                "NumericParameter": 42,
+                "StringParameter": "First"
+            },
+            "ComponentA2": {
+                "NumericParameter": 100,
+                "StringParameter": "Second"
+            }
+        },
+        "ComponentTypeB": {
+            "ComponentB": {
+                "Parameter1": 1,
+                "Parameter2": 2,
+                "Parameter3": 3
+            }
+        },
+        "ComponentTypeC": {
+            "DefaultC": {},
+            "ComponentC_1": {
+                "SomeSetting": "test-mode"
+            },
+            "ComponentC_2": {
+                "SomeSetting": "test-mode"
+            },
+            "ComponentC_3": {
+                "SomeSetting": "test-mode"
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+# Template for the component manifest file for registering a component to the simulation platform
+
+# The file is in YAML format. Note that the indentation is important.
+# The file should be but into the root folder of the repository containing the source code of the component.
+
+# Name is required attribute for all components.
+# It is used to identify the component type when specifying simulations.
+Name: "my_component"
+
+# Type is required attribute for all components.
+# The accepted values are "platform" for the platform managed components and
+# "external" for externally managed components.
+Type: platform
+
+# DockerImage is required attribute for platform managed components.
+# For externally managed components it is ignored.
+# The value should be the name of the Docker image that contains the simulation component.
+DockerImage: procem.ain.rd.tut.fi/simces/my_component_image
+
+# Description is an optional attribute which can contain a description of the component to the simulation platform.
+Description: "My simulation component"
+
+# Attributes is an optional attribute but if it is not given the Platform Manager
+# cannot do any checking for the parameters when starting new simulation runs.
+# - The attributes should contain the definitions for those starting attributes that are defined in
+#   the Start message block documentation for the component in question.
+# - The attribute definitions are given as key-value list.
+# - Each attribute defined for the component can have the following sub attributes:
+#   - Optional: true/false
+#     - If true, the attribute can be left out when defining a new simulation run.
+#     - if false, a simulation cannot be started without giving a value for this attribute.
+#     - By default the attribute is set as required, i.e. Optional is set to false.
+#   - Default: <the_default_value_for_the_attribute>
+#     - If the default value is set, it is used as the attribute value in cases where the attribute
+#       is not given a value in the simulation configuration.
+#   - Environment: <the_environment_variable_name>
+#     - Ignored for externally managed components.
+#     - If this is given, the corresponding value is used as the environment variable name instead of
+#       the attribute name when passing the starting parameters to a platform managed component.
+#   - IncludeInStart: true/false
+#     - Whether to include the attribute value in the Start message.
+#     - By default the attribute will be included in the Start message, i.e IncludeInStart is set to true.
+# - Any attribute that is given a value in the simulation configuration file for a new simulation will be included
+#   among the parameters in the Start message (and as environment variable for platform managed component).
+#   - This allows extending the available starting parameters for a component without updating the manifest file
+#     but this feature should only be used during the development phase.
+#   - No checking is done for any of the "undocumented" attributes.
+
+# some examples about defining the starting attributes are given below
+Attributes:
+
+    # a required starting attribute "AttributeName1" which is passed as the environment variable "ATTRIBUTE_VALUE_1"
+    AttributeName1:
+        Optional: false
+        Environment: ATTRIBUTE_NAME_1
+
+    # an optional starting attribute "AttributeName2" with a default value of 123 and
+    # is passed as the environment variable name "ATTRIBUTE_VALUE_2"
+    AttributeName2:
+        Optional: true
+        Default: 123
+        Environment: ATTRIBUTE_VALUE_2
+
+    # a required starting attribute "AttributeName3",
+    # if used with platform managed component the environment variable name will also be "AttributeName3"
+    AttributeName3:
+
+    # an optional starting attribute "AttributeName4" with a default value of "my_value",
+    # if used with platform managed component the environment variable name will also be "AttributeName4"
+    AttributeName4:
+        Optional: true
+        Default: "my_value"

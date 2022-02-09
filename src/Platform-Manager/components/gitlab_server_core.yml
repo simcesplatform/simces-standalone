@@ -1,0 +1,16 @@
+# Example for defining the GitLab repositories where manifest files should be fetched
+Repositories:
+    # - procemplus/simulation-manager:
+    #     File: component_manifest_manager.yml
+    # - procemplus/simulation-manager:
+    #     File: component_manifest_dummy.yml
+    # - procemplus/logwriter
+
+Type: GitLab
+Host: "https://git.ain.rd.tut.fi"
+
+# set this to false to skip SSL certificate checking
+Certificate: false
+
+# only needed for private repositories
+AccessToken: ${GITLAB_ACCESS_TOKEN}

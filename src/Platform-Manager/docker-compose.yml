@@ -1,0 +1,44 @@
+version: '3.5'
+
+services:
+
+    platform_manager:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: ghcr.io/simcesplatform/platform-manager:latest
+        container_name: simces_platform_manager
+        restart: "no"
+        env_file:
+            - rabbitmq.env
+            - mongodb.env
+            - common.env
+        volumes:
+            - simulation_configuration:/configuration
+            - ./manifests:/manifests:ro
+            - simulation_logs:/logs
+            - simulation_resources:/resources
+            # NOTE: allowing access to host Docker socket can be a security risk
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        networks:
+            - platform_network
+            - rabbitmq_network
+
+volumes:
+    simulation_configuration:
+        external: true
+        name: simces_simulation_configuration
+    simulation_logs:
+        external: true
+        name: simces_simulation_logs
+    simulation_resources:
+        external: true
+        name: simces_simulation_resources
+
+networks:
+    platform_network:
+        external: true
+        name: simces_platform_network
+    rabbitmq_network:
+        external: true
+        name: simces_rabbitmq_network

@@ -1,0 +1,9 @@
+# The file list for locally existing component manifest files existing locally
+# lines started with a hash character are ignored
+# the paths to the local component manifest files can be given either as relative or absolute paths
+
+# examples of manifest file paths, uncomment and replace with correct paths
+# component_manifest_grid.yml
+# ../my_component/component_manifest.yml
+# ../my_second_component/component_manifest_second.yml
+# /home/my_username/platform/my_third_component/component_manifest.yml

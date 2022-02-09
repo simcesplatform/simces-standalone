@@ -1,0 +1,17 @@
+# The component manifest file for the externally managed Grid component
+
+Name: Grid
+Type: external
+Description: "Externally deployed Grid component for the SimCes Platform"
+Attributes:
+    ModelName:
+        Optional: false
+    Symmetrical:
+        Optional: true
+        Default: false
+    MaxControlCount:
+        Optional: true
+        Default: 15
+    ModelVoltageBand:
+        Optional: true
+        Default: 0.15

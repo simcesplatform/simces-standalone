@@ -1,0 +1,7 @@
+aio_pika==6.7.1
+aiodocker==0.19.1
+aiounittest==1.4.0
+docker==4.4.1
+motor==2.2.0
+pymongo==3.11.0
+PyYAML==5.4.1

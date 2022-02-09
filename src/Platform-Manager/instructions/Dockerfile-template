@@ -1,0 +1,52 @@
+# Template for a simulation component Dockerfile
+# The given folder and commands are based on the Dockerfile for
+# the Static Time Series Resource component and should be changed
+
+# define the version of Python here
+FROM python:3.7.9
+
+# optional labels to provide metadata for the Docker image
+# (source: address to the repository, description: human-readable description)
+LABEL org.opencontainers.image.source https://github.com/simcesplatform/static-time-series-resource
+LABEL org.opencontainers.image.description "Docker image for the static time series resource component."
+
+# create the required directories inside the Docker image
+#
+# the Static Time Series Resource component has its own code in the static-time-series-resource
+# directory and it uses code from the init, domain-messages and domain-tools directories
+# the logs directory is created for the logging output
+
+RUN mkdir -p /static_time_series_resource
+RUN mkdir -p /init
+RUN mkdir -p /logs
+RUN mkdir -p /domain-messages
+RUN mkdir -p /domain-tools
+
+# install the python libraries inside the Docker image
+#
+# the required libraries are defined in the file requirements.txt and
+# at least the following should be included in there when using the common Python codes
+# aio_pika==6.6.1
+# aiounittest==1.4.0
+
+COPY requirements.txt /requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r /requirements.txt
+
+# copy the required directories with their content to the Docker image
+#
+# these directories should match the directory names that the component is using and that were created earlier
+
+COPY static_time_series_resource/ /static_time_series_resource/
+COPY init/ /init/
+COPY domain-messages/ /domain-messages/
+COPY domain-tools/ /domain-tools/
+
+# set the working directory inside the Docker image
+WORKDIR /
+
+# start command that is run when a Docker container using the image is started
+#
+# in this example "component" module in the "static-time-series-resource" directory is started
+
+CMD [ "python3", "-u", "-m", "static_time_series_resource.component" ]

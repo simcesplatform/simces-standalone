@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+
+    fetch:
+        build:
+            context: ..
+            dockerfile: Dockerfile-fetch
+        image: ghcr.io/simcesplatform/manifest-fetcher
+        container_name: simces_manifest_fetcher
+        restart: "no"
+        env_file:
+            - ../access_tokens.env
+        environment:
+            - SERVER_CONFIG_FOLDER=/components
+            - MANIFEST_FOLDER=/manifests
+        volumes:
+            - ../components:/components:ro
+            - ../manifests:/manifests
+            - simulation_logs:/logs
+
+volumes:
+    simulation_logs:
+        external: true
+        name: simces_simulation_logs
