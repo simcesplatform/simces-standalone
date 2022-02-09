@@ -1,0 +1,15 @@
+# The file list for all the required files required for the Simulation platform.
+# lines started with a hash character are ignored
+
+# For the standalone platform version, only modified or new files are listed
+
+docker_images_core_standalone.txt
+docker_images_domain_standalone.txt
+local_manifest_files.txt
+
+docker-compose.yml
+background/docker-compose-background.yml
+
+build_docker_images.sh
+platform_core_setup.sh
+platform_domain_setup.sh
