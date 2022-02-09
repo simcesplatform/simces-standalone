@@ -1,0 +1,12 @@
+# List of the Docker images for the core components of the simulation platform.
+# lines started with a hash character are ignored
+
+# for the standalone version
+# format: <image_name>;<source_folder>;<dockerfile_name>
+
+local/simcesplatform/platform-manager:latest;../src/Platform-Manager;Dockerfile
+local/simcesplatform/simulation-manager:latest;../src/Simulation-Manager;Dockerfile-manager
+local/simcesplatform/logwriter:latest;../src/LogWriter;Dockerfile-logwriter
+local/simcesplatform/logreader:latest;../src/LogReader;Dockerfile
+local/simcesplatform/dummy-component:latest;../src/Simulation-Manager;Dockerfile-dummy
+local/simcesplatform/mongo-express:latest;../src/mongo-express;Dockerfile
