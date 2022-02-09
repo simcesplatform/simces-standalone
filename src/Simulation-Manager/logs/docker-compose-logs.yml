@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+  log_access:
+    image: ubuntu:16.04
+    container_name: log_access
+    restart: "no"
+    entrypoint: ["sleep", "10m"]
+    volumes:
+      - simulation_logs:/logs
+
+volumes:
+  simulation_logs:
+    external: true
+    name: simulation_logs

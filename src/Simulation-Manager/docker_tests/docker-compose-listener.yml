@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+
+  listener:
+    build:
+      context: ..
+      dockerfile: Dockerfile-listener
+    image: listener:0.1
+    container_name: listener_component
+    restart: "no"
+    env_file:
+      - ../env/common.env
+      - ../env/listener.env
+    volumes:
+      - simulation_logs:/logs
+    networks:
+      - rabbitmq_network
+
+volumes:
+  simulation_logs:
+    external: true
+    name: simulation_logs
+
+networks:
+  rabbitmq_network:
+    name: rabbitmq_network
+    external: true

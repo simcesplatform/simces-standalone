@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3.8.4-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    env_file:
+      - rabbitmq.env
+    networks:
+      - rabbitmq_network
+
+networks:
+  rabbitmq_network:
+    name: rabbitmq_network
+    external: true

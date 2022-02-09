@@ -1,0 +1,41 @@
+# The component manifest file for the Simulation Manager
+
+Name: SimulationManager
+Type: platform
+DockerImage: ghcr.io/simcesplatform/simulation-manager:latest
+Description: "Simulation Manager for the SimCES simulation platform"
+Attributes:
+    InitialStartTime:
+        Optional: false
+        Environment: SIMULATION_INITIAL_START_TIME
+    EpochLength:
+        Optional: false
+        Environment: SIMULATION_EPOCH_LENGTH
+    MaxEpochCount:
+        Optional: false
+        Environment: SIMULATION_MAX_EPOCHS
+    Components:
+        Optional: false
+        Environment: SIMULATION_COMPONENTS
+    ManagerName:
+        Optional: true
+        Default: SimulationManager
+        Environment: SIMULATION_MANAGER_NAME
+    EpochTimerInterval:
+        Optional: true
+        Default: 120.0
+        Environment: SIMULATION_EPOCH_TIMER_INTERVAL
+    MaxEpochResendCount:
+        Optional: true
+        Default: 5
+        Environment: SIMULATION_MAX_EPOCH_RESENDS
+    SimulationName:
+        Optional: true
+        Default: simulation
+        Environment: SIMULATION_NAME
+        IncludeInStart: false
+    SimulationDescription:
+        Optional: true
+        Default: ""
+        Environment: SIMULATION_DESCRIPTION
+        IncludeInStart: false

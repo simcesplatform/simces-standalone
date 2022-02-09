@@ -1,0 +1,11 @@
+.git
+**/__pycache__
+**/*.pyc
+.vscode
+logfile.log
+logs/*.log
+env
+.env
+*.env
+docker-compose*
+pyrightconfig.json

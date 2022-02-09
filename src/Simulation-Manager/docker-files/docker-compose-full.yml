@@ -1,0 +1,215 @@
+version: '3.5'
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3.8.4-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    env_file:
+      - env/rabbitmq.env
+    networks:
+      - rabbitmq_network_full
+
+  mongodb:
+    image: mongo:4.2.7
+    container_name: mongodb
+    restart: always
+    expose:
+      - 27017
+    env_file:
+      - env/mongodb.env
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - mongodb_network_full
+
+  mongo_express:
+    image: mongo-express:0.54.0
+    container_name: mongo_express
+    restart: always
+    depends_on:
+      - mongodb
+    env_file:
+      - env/mongo_express.env
+    ports:
+      - 8081:8081
+    networks:
+      - mongodb_network_full
+
+  log_reader:
+    image: log_reader:0.5.0
+    build:
+      context: logreader
+      dockerfile: Dockerfile
+    container_name: log_reader
+    restart: always
+    depends_on:
+      - mongodb
+    env_file:
+      - env/components_mongodb.env
+    ports:
+      - 8080:8080
+    networks:
+      - mongodb_network_full
+
+  log_writer:
+    image: log_writer:0.5.0
+    build:
+      context: logwriter
+      dockerfile: Dockerfile-log-writer
+    container_name: log_writer
+    restart: "no"
+    depends_on:
+      - mongodb
+      - rabbitmq
+    env_file:
+      - env/components_common.env
+      - env/components_mongodb.env
+      - env/components_rabbitmq.env
+    environment:
+      - SIMULATION_LOG_FILE=logs/logfile_log_writer.log
+    volumes:
+      - simulation_logs:/logs
+    networks:
+      - mongodb_network_full
+      - rabbitmq_network_full
+
+  simulation_manager:
+    image: simulation_manager:0.5.0
+    build:
+      context: simulation-manager
+      dockerfile: Dockerfile-manager
+    container_name: manager
+    restart: "no"
+    depends_on:
+      - rabbitmq
+      - log_writer
+    env_file:
+      - env/components_common.env
+      - env/components_rabbitmq.env
+      - env/manager.env
+    volumes:
+      - simulation_logs:/logs
+    networks:
+      - rabbitmq_network_full
+
+  dummy_1:
+    image: dummy:0.5.0
+    build:
+      context: simulation-manager
+      dockerfile: Dockerfile-dummy
+    container_name: dummy_1
+    restart: "no"
+    depends_on:
+      - rabbitmq
+    env_file:
+      - env/components_common.env
+      - env/components_rabbitmq.env
+      - env/dummy.env
+    environment:
+      - SIMULATION_COMPONENT_NAME=dummy_1
+      - SIMULATION_LOG_FILE=logs/logfile_dummy1.log
+    volumes:
+      - simulation_logs:/logs
+    networks:
+      - rabbitmq_network_full
+
+  dummy_2:
+    image: dummy:0.5.0
+    build:
+      context: simulation-manager
+      dockerfile: Dockerfile-dummy
+    container_name: dummy_2
+    restart: "no"
+    depends_on:
+      - rabbitmq
+    env_file:
+      - env/components_common.env
+      - env/components_rabbitmq.env
+      - env/dummy.env
+    environment:
+      - SIMULATION_COMPONENT_NAME=dummy_2
+      - SIMULATION_LOG_FILE=logs/logfile_dummy2.log
+    volumes:
+      - simulation_logs:/logs
+    networks:
+      - rabbitmq_network_full
+
+  dummy_3:
+    image: dummy:0.5.0
+    build:
+      context: simulation-manager
+      dockerfile: Dockerfile-dummy
+    container_name: dummy_3
+    restart: "no"
+    depends_on:
+      - rabbitmq
+    env_file:
+      - env/components_common.env
+      - env/components_rabbitmq.env
+      - env/dummy.env
+    environment:
+      - SIMULATION_COMPONENT_NAME=dummy_3
+      - SIMULATION_LOG_FILE=logs/logfile_dummy3.log
+    volumes:
+      - simulation_logs:/logs
+    networks:
+      - rabbitmq_network_full
+
+  dummy_4:
+    image: dummy:0.5.0
+    build:
+      context: simulation-manager
+      dockerfile: Dockerfile-dummy
+    container_name: dummy_4
+    restart: "no"
+    depends_on:
+      - rabbitmq
+    env_file:
+      - env/components_common.env
+      - env/components_rabbitmq.env
+      - env/dummy.env
+    environment:
+      - SIMULATION_COMPONENT_NAME=dummy_4
+      - SIMULATION_LOG_FILE=logs/logfile_dummy4.log
+    volumes:
+      - simulation_logs:/logs
+    networks:
+      - rabbitmq_network_full
+
+  dummy_5:
+    image: dummy:0.5.0
+    build:
+      context: simulation-manager
+      dockerfile: Dockerfile-dummy
+    container_name: dummy_5
+    restart: "no"
+    depends_on:
+      - rabbitmq
+    env_file:
+      - env/components_common.env
+      - env/components_rabbitmq.env
+      - env/dummy.env
+    environment:
+      - SIMULATION_COMPONENT_NAME=dummy_5
+      - SIMULATION_LOG_FILE=logs/logfile_dummy5.log
+    volumes:
+      - simulation_logs:/logs
+    networks:
+      - rabbitmq_network_full
+
+volumes:
+  mongodb_data:
+    name: mongodb_data
+  simulation_logs:
+    name: simulation_logs
+
+networks:
+  rabbitmq_network_full:
+    name: rabbitmq_network_full
+  mongodb_network_full:
+    name: mongodb_network_full

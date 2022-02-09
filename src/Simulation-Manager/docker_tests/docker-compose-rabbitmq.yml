@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3.8.4-management
+    container_name: rabbitmq_manager_tests
+    restart: always
+    expose:
+      - 5672
+    environment:
+      - RABBITMQ_EXCHANGE=procem.manager_tests
+    networks:
+      - manager_test_network
+
+networks:
+  manager_test_network:
+    external: true
+    name: manager_test_network

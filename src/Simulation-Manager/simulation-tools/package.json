@@ -1,0 +1,13 @@
+{
+    "name": "simulation-tools",
+    "version": "0.3.0",
+    "description": "simulation platform tools",
+    "author": "Ville Heikkila",
+    "email": "ville.heikkila@tuni.fi",
+    "license": "MIT",
+    "dependencies": {
+        "@lhncbc/ucum-lhc": "4.1.3",
+        "grunt": ">=0.4.0"
+    },
+    "devDependencies": {}
+}

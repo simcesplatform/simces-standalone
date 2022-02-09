@@ -1,0 +1,31 @@
+# The component manifest file for the Dummy component
+
+Name: Dummy
+Type: platform
+Description: "Dummy component for the SimCES simulation platform"
+DockerImage: ghcr.io/simcesplatform/dummy-component:latest
+Attributes:
+    MinSleepTime:
+        Environment: MIN_SLEEP_TIME
+        Optional: true
+        Default: 2.0
+    MaxSleepTime:
+        Environment: MAX_SLEEP_TIME
+        Optional: true
+        Default: 15.0
+    SendMissChance:
+        Environment: SEND_MISS_CHANCE
+        Optional: true
+        Default: 0.0
+    ReceiveMissChance:
+        Environment: RECEIVE_MISS_CHANCE
+        Optional: true
+        Default: 0.0
+    WarningChance:
+        Environment: WARNING_CHANCE
+        Optional: true
+        Default: 0.0
+    ErrorChance:
+        Environment: ERROR_CHANCE
+        Optional: true
+        Default: 0.0

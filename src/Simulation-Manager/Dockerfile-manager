@@ -1,0 +1,20 @@
+FROM python:3.7.9
+LABEL org.opencontainers.image.source https://github.com/simcesplatform/simulation-manager
+LABEL org.opencontainers.image.description "Docker image for the simulation manager. Docker image source: Dockerfile-manager"
+
+RUN mkdir -p /init
+RUN mkdir -p /manager
+RUN mkdir -p /logs
+RUN mkdir -p /simulation-tools
+
+COPY requirements.txt /requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r /requirements.txt
+
+COPY init/ /init/
+COPY manager/ /manager/
+COPY simulation-tools/ /simulation-tools/
+
+WORKDIR /
+
+CMD [ "python3", "-u", "-m", "manager.manager" ]
