@@ -1,0 +1,5 @@
+epoch;timestamp;energy.storage.state:battery1.batteryState.chargePercentage
+1;2020-06-03T13:00:00Z;90
+1;2020-06-03T13:30:00Z;88
+2;2020-06-03T14:00:00Z;87
+2;2020-06-03T14:30:00Z;91

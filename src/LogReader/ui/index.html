@@ -1,0 +1,206 @@
+<!-- Copyright 2021 Tampere University and VTT Technical Research Centre of Finland
+This software was developed as a part of the ProCemPlus project: https://www.senecc.fi/projects/procemplus
+This source code is licensed under the MIT license. See LICENSE in the repository root directory.
+Author(s): Otto Hylli <otto.hylli@tuni.fi> and Ville Heikkilä <ville.heikkila@tuni.fi> -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Logging System API</title>
+        <link rel="stylesheet" href="style.css">
+        
+        <script src="main.js">
+        </script>
+    </head>
+
+    <body>
+        <h1>ProCemPlus Simulation Platform - Logging System API</h1>
+        <p>This is a simple user interface to the LogReader API. For more information including usage examples see the full <a href="api.html">API documentation</a>.</p>
+        <table class="main_table" id="main_table">
+            <tr>
+                <td class="main_td">
+                    <h3 class="query_header">Get metadata for all simulations</h3>
+                    <p>Returns a list of simulation runs the message database has messages for.</p>
+                    <table class="query_table">
+                        <tr>
+                            <td class="query_td"><label for="simulations_fromDate">From date:</label></td>
+                            <td class="query_td"><input type="text" id="simulations_fromDate" size="30" class="js-simple-tooltip" data-simpletooltip-text="Return simulation runs which have started on or after the given date."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="simulations_toDate">To date:</label></td>
+                            <td class="query_td"><input type="text" id="simulations_toDate" size="30" class="js-simple-tooltip" data-simpletooltip-text="Return simulation runs that have been started before the given date."></td>
+                        </tr>
+                        <tr>
+                            <td class="button_td" colspan="2">
+                                    <input type="button" onClick="getSimulations()" value="Send query">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td class="main_td">
+                    <h3 class="query_header">Get metadata for specific simulation</h3>
+                    <p>Returns general information about the given simulation run.</p>
+                    <table class="query_table">
+                        <tr>
+                            <td class="query_td"><label for="simulations_simulationId">Simulation id:</label></td>
+                            <td class="query_td">
+                                <input type="text" id="simulations_simulationId" size="30" class="js-simple-tooltip" data-simpletooltip-text="The id of a simulation run.">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="button_td" colspan="2">
+                                <input type="button" onClick="getSimulation()" value="Send query">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="main_td">
+                    <h3 class="query_header">Get messages for specific simulation</h3>
+                    <p>Returns messages from the given simulation run. Without parameters returns all messages. Parameters allow filtering in various ways.</p>
+                    <table class="query_table">
+                        <tr>
+                            <td class="query_td"><label for="messages_simulationId">Simulation id:</label></td>
+                            <td class="query_td"><input type="text" id="messages_simulationId" size="30" class="js-simple-tooltip" data-simpletooltip-text="Id of the simulation run messages are fetched from."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="messages_topic">Topic:</label></td>
+                            <td class="query_td"><input type="text" id="messages_topic" size="30" class="js-simple-tooltip" data-simpletooltip-text="Return messages published to the given topic. Supports the same notation that is used when subscribing to the topics i.e. the same wildcard mechanism including the * and # characters."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="messages_process">Process:</label></td>
+                            <td class="query_td"><input type="text" id="messages_process" size="30" class="js-simple-tooltip" data-simpletooltip-text="Return messages that have been published by the given processes i.e. messages whose source is the given process. Value is a comma separated list of process ids."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="messages_epoch">Epoch:</label></td>
+                            <td class="query_td"><input type="number" id="messages_epoch" min="0" class="js-simple-tooltip" data-simpletooltip-text="return messages published during the given epoch. Not applicable if from simulation date, to simulation date, start epoch or end epoch are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="messages_startEpoch">Start epoch:</label></td>
+                            <td class="query_td"><input type="number" id="messages_startEpoch" min="0" class="js-simple-tooltip" data-simpletooltip-text="Return messages published on or after the given epoch. Not applicable if epoch, from simulation date or to simulation date are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="messages_endEpoch">End epoch:</label></td>
+                            <td class="query_td"><input type="number" id="messages_endEpoch" min="0" class="js-simple-tooltip" data-simpletooltip-text="Return messages published on or before the given epoch. Not applicable if epoch, from simulation date or to simulation date are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="messages_fromSimDate">From simulation date:</label></td>
+                            <td class="query_td"><input type="text" id="messages_fromSimDate" size="30" class="js-simple-tooltip" data-simpletooltip-text="Return messages starting from the epoch that includes the given date. Not applicable if start epoch, epoch or end epoch are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="messages_toSimDate">To simulation date:</label></td>
+                            <td class="query_td"><input type="text" id="messages_toSimDate" size="30" class="js-simple-tooltip" data-simpletooltip-text="Return messages published before or on the epoch that includes the given date. Not applicable if start epoch, epoch or end epoch are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="messages_onlyWarnings">Include only warnings:</label></td>
+                            <td class="query_td"><input type="checkbox" id="messages_onlyWarnings" value="false" class="js-simple-tooltip" data-simpletooltip-text="If checked only messages that include warnings are returned. If not checked  messages with and without warnings are both returned."></td>
+                        </tr>
+                        <tr>
+                            <td class="button_td" colspan="2">
+                                <input type="button" onClick="getSimulationMessages()" value="Send query">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td class="main_td">
+                    <h3 class="query_header" >Get time series for specific simulation</h3>
+                    <p>Returns timeseries data constructed from values of given attributes of messages that meet the given time, topic and process based filtering conditions.
+                    The following kinds of message attribute values are suitable for time series and can be refered to in the attrs query parameter:</p>
+                    <ul>
+                        <li>Plain number, string or boolean values.</li>
+                        <li>QuantityBlocks in which case the Value part of the QuantityBlock is added to the created time series.</li>
+                        <li>TimeseriesBlock if only the attribute containing a time series block is referred to all attributes in the time series are included. It is also possible to refer to a particular attribute inside the time series block to only include it to the time series to be created.</li>
+                    </ul>
+                    <table class="query_table">
+                        <tr>
+                            <td class="query_td"><label for="timeseries_simulationId">Simulation id:</label></td>
+                            <td class="query_td"><input type="text" id="timeseries_simulationId" size="30" class="js-simple-tooltip" data-simpletooltip-text="Id of the simulation run a timeseries is created for."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="timeseries_attrs">Attributes:</label></td>
+                            <td class="query_td"><input type="text" id="timeseries_attrs" size="30" class="js-simple-tooltip" data-simpletooltip-text="Comma separated list of names of message attributes whose values are suitable for time series and which are then included to the timeseries response. It is possible to refer deeper into the message structure using the dot notation for example foo.bar."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="timeseries_topic">Topic:</label></td>
+                            <td class="query_td"><input type="text" id="timeseries_topic" size="30" class="js-simple-tooltip" data-simpletooltip-text="Use messages published to the given topic. Supports the same notation that is used when subscribing to the topics i.e. the same wildcard mechanism including the * and # characters."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="timeseries_process">Process:</label></td>
+                            <td class="query_td"><input type="text" id="timeseries_process" size="30" class="js-simple-tooltip" data-simpletooltip-text="Use messages that have been published by the given processes i.e. messages whose source is the given process. Value is a comma separated list of process ids."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="timeseries_epoch">Epoch:</label></td>
+                            <td class="query_td"><input type="number" id="timeseries_epoch" min="0" class="js-simple-tooltip" data-simpletooltip-text="Use messages published during the given epoch. Not applicable if from simulation date, to simulation date, end epoch or start epoch are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="timeseries_startEpoch">Start epoch:</label></td>
+                            <td class="query_td"><input type="number" id="timeseries_startEpoch" min="0" class="js-simple-tooltip" data-simpletooltip-text="Use messages published on or after the given epoch. Not applicable if epoch, from simulation date or to simulation date are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="timeseries_endEpoch">End epoch:</label></td>
+                            <td class="query_td"><input type="number" id="timeseries_endEpoch" min="0" class="js-simple-tooltip" data-simpletooltip-text="Use messages published on or before the given epoch. Not applicable if epoch, from simulation date or to simulation date are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="timeseries_fromSimDate">From simulation date:</label></td>
+                            <td class="query_td"><input type="text" id="timeseries_fromSimDate" size="30" class="js-simple-tooltip" data-simpletooltip-text="Use messages starting from the epoch that includes the given date. Not applicable if start epoch, epoch or end epoch are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="timeseries_toSimDate">To simulation date:</label></td>
+                            <td class="query_td"><input type="text" id="timeseries_toSimDate" size="30" class="js-simple-tooltip" data-simpletooltip-text="Use messages published before or on the epoch that includes the given date. Not applicable if start epoch, epoch or end epoch are used."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td">Format:</td>
+                            <td class="query_td">
+                                <input type="radio" id="format_json" name="timeseries_format" value="json" checked class="js-simple-tooltip" data-simpletooltip-text="Return timeseries in the JSON format.">
+                                <label for="format_json">JSON</label>
+                                <input type="radio" id="format_csv" name="timeseries_format" value="csv" class="js-simple-tooltip" data-simpletooltip-text="Return timeseries in the CSV format.">
+                                <label for="format_csv">CSV</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="button_td" colspan="2">
+                                <input type="button" onClick="getSimulationTimeseries()" value="Send query">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="main_td">
+                    <h3 class="query_header">Get invalid messages for specific simulation</h3>
+                    <p>Returns invalid messages from the given simulation run. This is intended for debugging simulation issues. A normal simulation run should not contain invalid messages.</p>
+                    <table class="query_table">
+                        <tr>
+                            <td class="query_td"><label for="invalid_messages_simulationId">Simulation id:</label></td>
+                            <td class="query_td"><input type="text" id="invalid_messages_simulationId" size="30" class="js-simple-tooltip" data-simpletooltip-text="Id of the simulation run invalid messages are fetched from."></td>
+                        </tr>
+                        <tr>
+                            <td class="query_td"><label for="invalid_messages_topic">Topic:</label></td>
+                            <td class="query_td"><input type="text" id="invalid_messages_topic" size="30" class="js-simple-tooltip" data-simpletooltip-text="Return invalid messages published to the given topic. Supports the same notation that is used when subscribing to the topics i.e. the same wildcard mechanism including the * and # characters."></td>
+                        </tr>
+                        <tr>
+                            <td class="button_td" colspan="2">
+                                <input type="button" onClick="getSimulationInvalidMessages()" value="Send query">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="main_td"></td>
+            </tr>
+        </table>
+        <table class="latest_query_table" id="latest_query_table">
+            <tr>
+                <td><strong>Latest query:</strong></td>
+                <td><span class="query_span" id="latest_query"></span></td>
+            </tr>
+        </table>
+        
+        <!-- used for creating the tooltips -->
+        <script src="van11y-accessible-simple-tooltip-aria.min.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+[
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Name": "test simulation 1",
+        "Description": "This is a test simulation with some example messages.",
+        "StartTime": { "$date": "2020-06-03T04:01:52.345Z" },
+        "EndTime": { "$date": "2020-06-03T04:11:52.345Z" },
+        "Epochs": 50,
+        "Processes": [ "simulationManager", "weatherDivinity", "solarPlant1", "battery1", "battery2", "battery3" ]
+    },
+    {
+        "SimulationId": "2020-06-03T10:01:52.345Z",
+        "Name": "test simulation 2",
+        "Description": "This is a test simulation without example messages.",
+        "StartTime": { "$date": "2020-06-03T10:01:52.345Z" },
+        "EndTime": { "$date": "2020-06-03T10:05:52.345Z" },
+        "Epochs": 40,
+        "Processes": [ "simulationManager", "weatherDivinity", "solarPlant1", "battery1", "battery2" ]
+    },
+    {
+        "SimulationId": "2020-06-04T04:01:52.345Z",
+        "Name": "test simulation 2",
+        "Description": "This is a test simulation without example messages.",
+        "StartTime": { "$date": "2020-06-04T04:01:52.345Z" },
+        "EndTime": { "$date": "2020-06-03T04:15:52.345Z" },
+        "Epochs": 100,
+        "Processes": [ "simulationManager", "weatherDivinity", "solarPlant1", "battery1" ]
+    }
+]

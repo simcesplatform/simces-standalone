@@ -1,0 +1,38 @@
+{
+   "TimeIndex": [
+      {
+         "epoch": 1,
+         "timestamp": "2020-06-03T13:00:00Z"
+      },
+      {
+         "epoch": 1,
+         "timestamp": "2020-06-03T13:30:00Z"
+      },
+      {
+         "epoch": 2,
+         "timestamp": "2020-06-03T14:00:00Z"
+      },
+      {
+         "epoch": 2,
+         "timestamp": "2020-06-03T14:30:00Z"
+      }
+   ],
+   "energy.storage.state": {
+      "battery1": {
+         "batteryState": {
+            "capacity": [
+               300,
+               280,
+               260,
+               310
+            ],
+            "chargePercentage": [
+               90,
+               88,
+               87,
+               91
+            ]
+         }
+      }
+   }
+}

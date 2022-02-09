@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+
+  mongodb:
+    image: mongo:4.2.7
+    container_name: mongodb
+    restart: always
+    logging:
+        driver: "none"
+    env_file:
+      - mongodb.env
+    ports:
+      - 27017:27017
+    networks:
+      - logreader_test_network
+
+  logreader:
+    image: logreader:latest
+    build: .
+    container_name: logreader
+    command: [ "python", "-m", "unittest" ]
+    depends_on:
+      - mongodb
+    env_file:
+      - logreader.env
+    networks:
+      - logreader_test_network
+
+
+networks:
+  logreader_test_network:
+    name: logreader_test_network

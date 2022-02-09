@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+
+  mongodb:
+    image: mongo:4.2.7
+    container_name: mongodb
+    restart: always
+    env_file:
+      - mongodb.env
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - logreader_network
+
+  logreader:
+    image: logreader:latest
+    build: .
+    container_name: logreader
+    restart: always
+    depends_on:
+      - mongodb
+    env_file:
+      - logreader.env
+    ports:
+      - 8080:8080
+    networks:
+      - logreader_network
+
+volumes:
+  mongo_data:
+    name: mongo_data
+
+networks:
+  logreader_network:
+    name: logreader_network

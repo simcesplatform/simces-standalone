@@ -1,0 +1,82 @@
+{
+   "TimeIndex": [
+      {
+         "epoch": 1,
+         "timestamp": {
+            "$date": "2020-06-03T13:00:00Z"
+         }
+      },
+      {
+         "epoch": 1,
+         "timestamp": {
+            "$date": "2020-06-03T13:15:00Z"
+         }
+      },
+      {
+         "epoch": 1,
+         "timestamp": {
+            "$date": "2020-06-03T13:30:00Z"
+         }
+      },
+      {
+         "epoch": 1,
+         "timestamp": {
+            "$date": "2020-06-03T13:45:00Z"
+         }
+      },
+      {
+         "epoch": 2,
+         "timestamp": {
+            "$date": "2020-06-03T14:00:00Z"
+         }
+      },
+      {
+         "epoch": 2,
+         "timestamp": {
+            "$date": "2020-06-03T14:15:00Z"
+         }
+      },
+      {
+         "epoch": 2,
+         "timestamp": {
+            "$date": "2020-06-03T14:30:00Z"
+         }
+      },
+      {
+         "epoch": 2,
+         "timestamp": {
+            "$date": "2020-06-03T14:45:00Z"
+         }
+      }
+   ],
+   "energy.storage.state": {
+      "battery1": {
+         "batteryState": {
+            "chargePercentage": [
+               90,
+               null,
+               88,
+               null,
+               87,
+               null,
+               91,
+               null
+            ]
+         }
+      },
+      "battery3": {
+         "batteryState": {
+            "chargePercentage": [
+               60,
+               58,
+               59,
+               61,
+               57,
+               55,
+               55,
+               52
+            ]
+         }
+      }
+   }
+}

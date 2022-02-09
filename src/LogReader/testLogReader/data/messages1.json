@@ -1,0 +1,250 @@
+[
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "SimState",
+        "Type": "SimState",
+        "Timestamp": { "$date": "2020-06-03T04:01:52.345Z" },
+        "SourceProcessId": "simulationManager",
+        "MessageId": "simulationManager-1",
+        "SimulationState": "running"
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "Epoch",
+        "EpochNumber": 1,
+        "Type": "Epoch",
+        "Timestamp": { "$date": "2020-06-03T04:01:53Z" },
+        "SourceProcessId": "SimulationManager",
+        "MessageId": "SimulationManager-2",
+        "StartTime": { "$date": "2020-06-03T13:00:00Z" },
+        "EndTime": { "$date": "2020-06-03T14:00:00Z" }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "weather.current",
+        "EpochNumber": 1,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:01:55Z" },
+        "Warnings": [ "someWarning" ],
+        "SourceProcessId": "weatherDivinity",
+        "MessageId": "weatherDivinity-1"
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.production.solar",
+        "EpochNumber": 1,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:01:56Z" },
+        "SourceProcessId": "solarPlant1",
+        "MessageId": "solarPlant1-1",
+        "RealPower": { "Value": 5.0, "UnitOfMeasure": "kW" },
+        "ReactivePower": { "Value": 0.2, "UnitOfMeasure": "kV.A{r}" },
+        "bus": "bus1"
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.storage.state",
+        "EpochNumber": 1,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:01:56Z" },
+        "SourceProcessId": "battery1",
+        "MessageId": "battery1-1",
+        "batteryState": {
+            "TimeIndex": [ "2020-06-03T13:00:00Z", "2020-06-03T13:30:00Z" ],
+            "Series": {
+                "chargePercentage": {
+                    "UnitOfMeasure": "%",
+                    "Values": [ 90, 88 ]
+                },
+                "capacity": {
+                    "UnitOfMeasure": "x",
+                    "Values": [ 300, 280 ]
+                }
+            }
+        }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.storage.state",
+        "EpochNumber": 1,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:01:58Z" },
+        "SourceProcessId": "battery2",
+        "MessageId": "battery2-1",
+        "batteryState": {
+            "TimeIndex": [ "2020-06-03T13:00:00Z", "2020-06-03T13:30:00Z" ],
+            "Series": {
+                "chargePercentage": {
+                    "UnitOfMeasure": "%",
+                    "Values": [ 40, 42 ]
+                },
+                "capacity": {
+                    "UnitOfMeasure": "x",
+                    "Values": [ 100, 130 ]
+                }
+            }
+        }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.storage.state",
+        "EpochNumber": 1,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:01:59Z" },
+        "SourceProcessId": "battery3",
+        "MessageId": "battery3-1",
+        "batteryState": {
+            "TimeIndex": [ "2020-06-03T13:00:00Z", "2020-06-03T13:15:00Z", "2020-06-03T13:30:00Z", "2020-06-03T13:45:00Z" ],
+            "Series": {
+                "chargePercentage": {
+                    "UnitOfMeasure": "%",
+                    "Values": [ 60, 58, 59, 61 ]
+                }
+            }
+        }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "weather.forecast",
+        "EpochNumber": 1,
+        "Type": "Forecast",
+        "Timestamp": { "$date": "2020-06-03T04:01:56Z" },
+        "SourceProcessId": "weatherDivinity",
+        "MessageId": "weatherDivinity-2"
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "Epoch",
+        "EpochNumber": 2,
+        "Type": "Epoch",
+        "Timestamp": { "$date": "2020-06-03T04:02:53Z" },
+        "SourceProcessId": "SimulationManager",
+        "MessageId": "SimulationManager-3",
+        "StartTime": { "$date": "2020-06-03T14:00:00Z" },
+        "EndTime": { "$date": "2020-06-03T15:00:00Z" }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "weather.forecast",
+        "EpochNumber": 2,
+        "Type": "Forecast",
+        "Timestamp": { "$date": "2020-06-03T04:02:55Z" },
+        "SourceProcessId": "weatherDivinity",
+        "MessageId": "weatherDivinity-3"
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "weather.current",
+        "EpochNumber": 2,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:02:56Z" },
+        "SourceProcessId": "weatherDivinity",
+        "MessageId": "weatherDivinity-4"
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.production.solar",
+        "EpochNumber": 2,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:02:56Z" },
+        "SourceProcessId": "solarPlant1",
+        "MessageId": "solarPlant1-2",
+        "RealPower": { "Value": 8.0, "UnitOfMeasure": "kW" }, 
+        "ReactivePower": { "Value": 0.5, "UnitOfMeasure": "kV.A{r}" },
+        "bus": "bus1"
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.storage.state",
+        "EpochNumber": 2,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:02:57Z" },
+        "SourceProcessId": "battery1",
+        "MessageId": "battery1-2",
+        "batteryState": {
+            "TimeIndex": [ "2020-06-03T14:00:00Z", "2020-06-03T14:30:00Z" ],
+            "Series": {
+                "chargePercentage": {
+                    "UnitOfMeasure": "%",
+                    "Values": [ 87, 91 ]
+                },
+                "capacity": {
+                    "UnitOfMeasure": "x",
+                    "Values": [ 260, 310 ]
+                }
+            }
+        }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.storage.state",
+        "EpochNumber": 2,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:02:58Z" },
+        "SourceProcessId": "battery2",
+        "MessageId": "battery2-2",
+        "batteryState": {
+            "TimeIndex": [ "2020-06-03T14:00:00Z", "2020-06-03T14:30:00Z" ],
+            "Series": {
+                "chargePercentage": {
+                    "UnitOfMeasure": "%",
+                    "Values": [ 45, 48 ]
+                },
+                "capacity": {
+                    "UnitOfMeasure": "x",
+                    "Values": [ 140, 160 ]
+                }
+            }
+        }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.storage.state",
+        "EpochNumber": 2,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:02:59Z" },
+        "SourceProcessId": "battery3",
+        "MessageId": "battery3-2",
+        "batteryState": {
+            "TimeIndex": [ "2020-06-03T14:00:00Z", "2020-06-03T14:15:00Z", "2020-06-03T14:30:00Z", "2020-06-03T14:45:00Z" ],
+            "Series": {
+                "chargePercentage": {
+                    "UnitOfMeasure": "%",
+                    "Values": [ 57, 55, 55, 52 ]
+                }
+            }
+        }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "Epoch",
+        "EpochNumber": 3,
+        "Type": "Epoch",
+        "Timestamp": { "$date": "2020-06-03T04:03:53Z" },
+        "SourceProcessId": "SimulationManager",
+        "MessageId": "SimulationManager-4",
+        "StartTime": { "$date": "2020-06-03T15:00:00Z" },
+        "EndTime": { "$date": "2020-06-03T16:00:00Z" }
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "energy.production.solar",
+        "EpochNumber": 3,
+        "Type": "Result",
+        "Timestamp": { "$date": "2020-06-03T04:03:56Z" },
+        "SourceProcessId": "solarPlant1",
+        "Warnings": [ "someWarning" ],
+        "MessageId": "solarPlant1-3"
+    },
+    {
+        "SimulationId": "2020-06-03T04:01:52.345Z",
+        "Topic": "Epoch",
+        "EpochNumber": 4,
+        "Type": "Epoch",
+        "Timestamp": { "$date": "2020-06-03T04:04:53Z" },
+        "SourceProcessId": "SimulationManager",
+        "MessageId": "SimulationManager-5",
+        "StartTime": { "$date": "2020-06-03T16:00:00Z" },
+        "EndTime": { "$date": "2020-06-03T17:00:00Z" }
+    }
+]

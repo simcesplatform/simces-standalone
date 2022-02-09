@@ -1,0 +1,144 @@
+{
+   "result": [
+      {
+         "TimeIndex": [],
+         "energy.production.solar": {
+            "solarPlant1": {
+               "RealPower": {
+                  "index": 0,
+                  "timeIndex": [
+                     {
+                        "$date": "2020-06-03T13:00:00Z"
+                     }
+                  ],
+                  "duplicate": true,
+                  "RealPower": {
+                     "values": [],
+                     "source": [
+                        5.0
+                     ]
+                  }
+               },
+               "ReactivePower": {
+                  "index": 0,
+                  "timeIndex": [
+                     {
+                        "$date": "2020-06-03T13:00:00Z"
+                     }
+                  ],
+                  "duplicate": true,
+                  "ReactivePower": {
+                     "values": [],
+                     "source": [
+                        0.2
+                     ]
+                  }
+               }
+            }
+         }
+      },
+      {
+         "TimeIndex": [],
+         "energy.production.solar": {
+            "solarPlant1": {
+               "RealPower": {
+                  "index": 0,
+                  "timeIndex": [
+                     {
+                        "$date": "2020-06-03T14:00:00Z"
+                     }
+                  ],
+                  "duplicate": true,
+                  "RealPower": {
+                     "values": [],
+                     "source": [
+                        8.0
+                     ]
+                  }
+               },
+               "ReactivePower": {
+                  "index": 0,
+                  "timeIndex": [
+                     {
+                        "$date": "2020-06-03T14:00:00Z"
+                     }
+                  ],
+                  "duplicate": true,
+                  "ReactivePower": {
+                     "values": [],
+                     "source": [
+                        0.5
+                     ]
+                  }
+               }
+            }
+         }
+      }
+   ],
+   "epochResult": [
+      [
+         {
+            "index": 0,
+            "timeIndex": [
+               {
+                  "$date": "2020-06-03T13:00:00Z"
+               }
+            ],
+            "duplicate": true,
+            "RealPower": {
+               "values": [],
+               "source": [
+                  5.0
+               ]
+            }
+         },
+         {
+            "index": 0,
+            "timeIndex": [
+               {
+                  "$date": "2020-06-03T13:00:00Z"
+               }
+            ],
+            "duplicate": true,
+            "ReactivePower": {
+               "values": [],
+               "source": [
+                  0.2
+               ]
+            }
+         }
+      ],
+      [
+         {
+            "index": 0,
+            "timeIndex": [
+               {
+                  "$date": "2020-06-03T14:00:00Z"
+               }
+            ],
+            "duplicate": true,
+            "RealPower": {
+               "values": [],
+               "source": [
+                  8.0
+               ]
+            }
+         },
+         {
+            "index": 0,
+            "timeIndex": [
+               {
+                  "$date": "2020-06-03T14:00:00Z"
+               }
+            ],
+            "duplicate": true,
+            "ReactivePower": {
+               "values": [],
+               "source": [
+                  0.5
+               ]
+            }
+         }
+      ]
+   ]
+}

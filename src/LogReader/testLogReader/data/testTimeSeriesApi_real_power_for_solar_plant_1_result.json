@@ -1,0 +1,20 @@
+{
+   "TimeIndex": [
+      {
+         "epoch": 1,
+         "timestamp": "2020-06-03T13:00:00Z"
+      },
+      {
+         "epoch": 2,
+         "timestamp": "2020-06-03T14:00:00Z"
+      }
+   ],
+   "energy.production.solar": {
+      "solarPlant1": {
+         "RealPower": [
+            5.0,
+            8.0
+         ]
+      }
+   }
+}

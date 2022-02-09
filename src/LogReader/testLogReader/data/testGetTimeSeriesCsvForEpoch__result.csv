@@ -1,0 +1,5 @@
+epoch;timestamp;energy.storage.state:battery1.batteryState.chargePercentage;energy.storage.state:battery1.batteryState.capacity;energy.storage.state:battery2.batteryState.chargePercentage;energy.storage.state:battery2.batteryState.capacity;energy.storage.state:battery3.batteryState.chargePercentage
+2;2020-06-03T14:00:00Z;87;260;45;140;57
+2;2020-06-03T14:15:00Z;;;;;55
+2;2020-06-03T14:30:00Z;91;310;48;160;55
+2;2020-06-03T14:45:00Z;;;;;52
