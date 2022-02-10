@@ -68,7 +68,7 @@ The following ports must be free:
 Once Docker has been installed, it must be configured to run with root permissions to enable the commands to work. Assuming you run on Linux, please see https://docs.docker.com/engine/install/linux-postinstall/ .
 
 Preparation for the installation:
-- (Optional) Update source code from for the components from GitHub: source scripts/fetch_code.sh
+- (Optional) Update source code for the components from GitHub: source scripts/fetch_code.sh
 - (Required) Copy the required platform files to installation directory: source scripts/copy_platform_files.sh
 
 Installing the platform:
