@@ -79,12 +79,14 @@ Installing the platform:
 
 Please note that following the start command, a component called Platform Manager starts the simulation. Then, Platform Manager will exit (as visible in the console output) although the actual simulation components still run.
 
-The duration of the simulation depends on the performance of your system. To verify finishing, you can use the command below to print a log. The simulation has finished when:
+The duration of the simulation depends on the performance of your system. To verify finishing, you can use the command below: 
 
+$ docker logs Sim00_simulation-manager
+
+The simulation has finished when:
 - either the log ends with "stopping the simulation"
 - or the command returns "no such container".
 
-docker logs Sim00_simulation-manager
 
 Once the simulation has been run, the containers of the actual simulation components quit. However, the message bus and logging system remain running by default.
 
@@ -115,3 +117,16 @@ In the resulting JSON message, you can see that the component has taken 0.89 kW 
 In the result, you can see the load profile during the simulation: -0.89, -0.75, -0.76, ...
 
 This example is trivial as the simulation only repeats the values defined for each component in the source files. However, the benefits become obvious when more complex components actually provide output from simulations based on real-life systems. Following the initial motivation of SimCES, such a simulation can study, e.g., energy management, state monitoring for the electricity network, or electricity-related congestion management.
+
+
+### Shutdown
+
+Some containers remain running after the simulation. You can stop the platform by removing all the containers that have a name starting with "SimCES". To find the containers:
+
+$ docker ps -a --filter name=simces
+
+Then, you would stop these one by one. For example:
+
+$ docker container rm -f simces_log_reader
+
+To uninstall, the images are removed with standard Docker commands.
