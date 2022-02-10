@@ -48,22 +48,70 @@ version, the same design principles apply even in the standalone version.
 
 ## System requirements
 
-TODO!
+- Operating system: Linux recommended; (tested with Ubuntu 20.04.3 LTS desktop version)
+- Platform: Docker (tested with 20.10.12) Docker Compose (tested with 1.29.1)
+- Memory: 4 GB or more recommended; depends on the simulation components
+- Storage space: 6 GB or more; depends on the simulation components
+- Internet connection
 
-- Platform: Docker Compose (version?)
-- Memory: ?
-- Storage space: ?
+The following ports must be free:
+- 5672
+- 8080
+- 8081
+- 15672
 
 
 ## Quick instructions for standalone version
 
+### Installation and startup
+
+Once Docker has been installed, it must be configured to run with root permissions to enable the commands to work. Assuming you run on Linux, please see https://docs.docker.com/engine/install/linux-postinstall/ .
+
 Preparation for the installation:
-- (Optional) Update source code from for the components from GitHub: `source scripts/fetch_code.sh`
-- (Required) Copy the required platform files to installation directory: `source scripts/copy_platform_files.sh`
+- (Optional) Update source code from for the components from GitHub: source scripts/fetch_code.sh
+- (Required) Copy the required platform files to installation directory: source scripts/copy_platform_files.sh
 
 Installing the platform:
-- Enter the installation directory: `cd platform`
-- Build and install the core platform: `source platform_core_setup.sh`
-- Build and install the included domain components: `source platform_domain_setup.sh`
-- Run the test simulation: `source start_simulation.sh simulation_configuration_test.yml`
-- Run the Energy Community test scenario: `source start_simulation.sh simulation_configuration_ec.yml`
+- Enter the installation directory: cd platform
+- Build and install the core platform: source platform_core_setup.sh
+- Build and install the included domain components: source platform_domain_setup.sh
+- Run the Energy Community test scenario: source start_simulation.sh simulation_configuration_ec.yml
+
+Please note that following the start command, a component called Platform Manager starts the simulation. Then, Platform Manager will exit (as visible in the console output) although the actual simulation components still run.
+
+The duration of the simulation depends on the performance of your system. To verify finishing, you can use the command below to print a log. The simulation has finished when:
+
+- either the log ends with "stopping the simulation"
+- or the command returns "no such container".
+
+docker logs Sim00_simulation-manager
+
+Once the simulation has been run, the containers of the actual simulation components quit. However, the message bus and logging system remain running by default.
+
+
+### See logged results
+
+The results of simulation are accessed via the log API. Although this was designed for software clients, there is a lightweight user interface (UI) too. To view the output logged from simulation components, use the UI as follows.
+
+1. Resolve and store the relevant simulation ID into a text file. This is a timestamp visible in two places: (1) in the output from Platform Manager after startup and (2) in the metadata accessible at http://localhost:8080/simulations .
+
+2. To access the UI, navigate to http://localhost:8080/ .
+
+3. For example, we want to view the power taken by load 3 during the first round (or epoch) of the simulation. To view a single message from a simulation component with the UI, use the section "Get messages for specific simulation". Before clicking "send query", give the following parameters:
+
+- the earlier resolved simulation ID
+- "ResourceState.Load.load_3" as the topic
+- "1" as the epoch number
+
+In the resulting JSON message, you can see that the component has taken 0.89 kW of real power from the network.
+
+4. For another example, we want to see the real power of load 3 during the entire simulation. To generate a timeseries from multiple messages, use the section "Get time series for specific simulation". Before clicking "send query", give the following parameters:
+
+- the earlier resolved simulation ID
+- "RealPower" as attributes
+- "ResourceState.Load.load_3" as the topic
+- either JSON or CSV for the format
+
+In the result, you can see the load profile during the simulation: -0.89, -0.75, -0.76, ...
+
+This example is trivial as the simulation only repeats the values defined for each component in the source files. However, the benefits become obvious when more complex components actually provide output from simulations based on real-life systems. Following the initial motivation of SimCES, such a simulation can study, e.g., energy management, state monitoring for the electricity network, or electricity-related congestion management.
