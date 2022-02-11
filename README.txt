@@ -48,8 +48,10 @@ version, the same design principles apply even in the standalone version.
 
 ## System requirements
 
-- Operating system: Linux recommended; (tested with Ubuntu 20.04.3 LTS desktop version)
-- Platform: Docker (tested with 20.10.12) Docker Compose (tested with 1.29.1)
+- Operating system: Linux recommended (tested with Ubuntu 20.04.3 LTS desktop version)
+- Platform:
+    - Docker (tested with 20.10.12)
+    - Docker Compose (tested with 1.29.1)
 - Memory: 4 GB or more recommended; depends on the simulation components
 - Storage space: 6 GB or more; depends on the simulation components
 - Internet connection
@@ -87,13 +89,12 @@ The simulation has finished when:
 - either the log ends with "stopping the simulation"
 - or the command returns "no such container".
 
-
 Once the simulation has been run, the containers of the actual simulation components quit. However, the message bus and logging system remain running by default.
 
 
 ### See logged results
 
-The results of simulation are accessed via the log API. Although this was designed for software clients, there is a lightweight user interface (UI) too. To view the output logged from simulation components, use the UI as follows.
+The results of simulation are accessed via the log API. Although this was designed for software clients, there is a lightweight user interface (UI) too. To view the output logged from simulation components, do as follows.
 
 1. Resolve and store the relevant simulation ID into a text file. This is a timestamp visible in two places: (1) in the output from Platform Manager after startup and (2) in the metadata accessible at http://localhost:8080/simulations .
 
