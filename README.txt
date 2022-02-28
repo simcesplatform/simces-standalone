@@ -1,4 +1,4 @@
-# SimCES Simulation Platform
+# SimCES Simulation Platform, standalone version
 
 SimCES, Simulation Environment of Complex Energy System
 
@@ -48,7 +48,8 @@ version, the same design principles apply even in the standalone version.
 
 ## System requirements
 
-- Operating system: Linux recommended (tested with Ubuntu 20.04.3 LTS desktop version)
+- Operating system: Linux with a graphical user interface recommended
+  - tested with Ubuntu 20.04.3 LTS desktop version
 - Platform:
     - Docker (tested with 20.10.12)
     - Docker Compose (tested with 1.29.1)
