@@ -569,7 +569,36 @@
 <p>New components can be developed by creating a child class from the <code>AbstractSimulationComponent</code> and providing an implementation for certain methods.</p>
 <p>A template for creating a child class, <a href="https://github.com/simcesplatform/simulation-tools/blob/master/examples/component_template.py">https://github.com/simcesplatform/simulation-tools/blob/master/examples/component_template.py</a>, is available and other information regarding the creation of a new simulation component can be found at <a href="../core_create-cmp/">Creating new component</a>.</p>
 <h2 id="the-workflow-during-the-initialization-process">The workflow during the initialization process</h2>
-<p>TODO</p>
+<p>A diagram describing the the workflow at the initialization process for a new component based on AbstractSimulationComponent using the template for creating a child class. In the the diagram the class name for the new component is <code>NewComponent</code>.</p>
+<p><img alt="Workflow diagram at the initialization process for a new component based on AbstractSimulationComponent using the template for creating a child class." src="../images/abstract_component_class_initialization.png" /></p>
+<p>The parts that the developer are required to either implement or modify are marked with red color in the diagram. These include:</p>
+<ul>
+<li><code>create_component</code><ul>
+<li>this method should return a new instance of the new component</li>
+<li>The recommended workflow:<ul>
+<li>read in the environmental variables required for the new component ("Read NewComponent specific environment variables" in the diagram)</li>
+<li>create an instance of the new component by calling its constructor with the parameters</li>
+<li>return the created instance.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>constructor of the new component<ul>
+<li>Initialize <code>NewComponent</code> specific variables<ul>
+<li>This part of the constructor should initialize any variables inside the new component that are required to keep track of all the required information that the component needs to know when the simulation is running.</li>
+</ul>
+</li>
+<li>Set up other topics variable<ul>
+<li>This part of the constructor should initialize the <code>self._other_topics</code> variable with a list of the topics that the component needs to listen to while the simulation is running.</li>
+</ul>
+</li>
+<li>Set up initialization error if all variables could not be properly initialized<ul>
+<li>If there was some error when initializing one or more of the component variables, <code>self.initialization_error</code> should be set up with an appropriate error message.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="the-workflow-when-receiving-a-new-message">The workflow when receiving a new message</h2>
 <p>A diagram describing the workflow inside the component after receiving a new message from the message bus is given below. Each box represents a method in the class.</p>
 <p><img alt="Full workflow diagram for AbstractSimulationComponent when receiving a new message from the message bus" src="../images/abstract_component_workflow.png" /></p>

@@ -548,6 +548,26 @@
             
             <li class="nav-item" data-level="1"><a href="#dummy-component" class="nav-link">Dummy Component</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#description" class="nav-link">Description</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#functionalities" class="nav-link">Functionalities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#technical-details" class="nav-link">Technical details</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#workflow" class="nav-link">Workflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#input-parameters" class="nav-link">Input parameters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -556,7 +576,97 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="dummy-component">Dummy Component</h1>
-<p>TODO</p></div>
+<h2 id="description">Description</h2>
+<p>Dummy component is a simulation component that can be used to test the simulation platform installation. It can also be used to add delays to the execution of the simulation run if there is a desire to follow the progress of the simulation during the simulation run.</p>
+<h2 id="functionalities">Functionalities</h2>
+<ul>
+<li>Listens to the message bus and catches all messages for the topics <code>SimState</code> and <code>Epoch</code> in the given exchange.</li>
+<li>Offers parameters that can be used to adjust waiting times before the component sends <a href="../core_msg-status/">Status</a> message.</li>
+<li>Offers parameters that can be used to set the probabilities that the component fails to react to a new <a href="../core_msg-epoch/">Epoch</a> message or fails to send a <a href="../core_msg-status/">Status</a> message.</li>
+<li>Offers parameter that can be used to set the probability that the component sends an <a href="../core_msg-status/#error-message">Error</a> message instead of <a href="../core_msg-status/#ready-message">Ready</a> message.</li>
+<li>Sends a randomly generated result message to a topic <code>Result</code> before sending a <a href="../core_msg-status/">Status</a> message for each epoch.</li>
+</ul>
+<h2 id="technical-details">Technical details</h2>
+<ul>
+<li>Dummy component is written in Python (3.7.9) and the source code is part of <a href="../core_simulationmanager/">Simulation Manager</a> repository. The code related to the dummy component specifically is found at folder: <a href="https://github.com/simcesplatform/Simulation-Manager/tree/master/dummy">https://github.com/simcesplatform/Simulation-Manager/tree/master/dummy</a></li>
+<li>Dummy component connects to RabbitMQ message bus. Both local and remote message bus servers are supported.</li>
+</ul>
+<h2 id="workflow">Workflow</h2>
+<p>In the following <code>rand(a, b)</code> is a random number in the interval [a, b].</p>
+<ul>
+<li>1. Receive the message bus connection parameters and dummy component related parameters upon startup.</li>
+<li>2. Open the connection to the message bus and start a message listener for topics SimState and Epoch.</li>
+<li>3. After receiving simulation start message respond with status ready message.</li>
+<li>4. For each incoming epoch message received from the message bus:<ul>
+<li>4.1. If <code>rand(0, 1) &lt; RECEIVE_MISS_CHANCE</code>, ignore the epoch message. Otherwise, move to 4.2.</li>
+<li>4.2. If <code>rand(0, 1) &lt; ERROR_CHANCE</code>, send an error message. Otherwise, move to 4.3.</li>
+<li>4.3. Wait for <code>rand(MIN_SLEEP_TIME, MAX_SLEEP_TIME)</code> seconds.</li>
+<li>4.4. Create and send a randomly created result message to topic Result.</li>
+<li>4.5. If <code>rand(0, 1) &lt; SEND_MISS_CHANCE</code>, skip sending a status ready message. Otherwise, move to 4.6.</li>
+<li>4.6. Send a status ready message for the epoch.<ul>
+<li>If <code>rand(0, 1) &lt; WARNING_CHANCE</code>, include a warning in the status message.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>5. Close the component after receiving a simulation stopped message.</li>
+</ul>
+<h2 id="input-parameters">Input parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter name</th>
+<th>Datatype</th>
+<th>Corresponding <a href="../core_msg-start/#dummy-component-block">Start message</a> attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIN_SLEEP_TIME</td>
+<td>Float</td>
+<td>MinSleepTime</td>
+<td>2.0</td>
+<td>Minimum waiting time in seconds before sending Status message.</td>
+</tr>
+<tr>
+<td>MAX_SLEEP_TIME</td>
+<td>Float</td>
+<td>MaxSleepTime</td>
+<td>15.0</td>
+<td>Maximum waiting time in seconds before sending Status message.</td>
+</tr>
+<tr>
+<td>WARNING_CHANCE</td>
+<td>Float</td>
+<td>WarningChance</td>
+<td>0.0</td>
+<td>Probability (0-1) that a warning is included in Status message.</td>
+</tr>
+<tr>
+<td>SEND_MISS_CHANCE</td>
+<td>Float</td>
+<td>SendMissChance</td>
+<td>0.0</td>
+<td>Probability (0-1) that sending Status message is skipped after processing the epoch.</td>
+</tr>
+<tr>
+<td>RECEIVE_MISS_CHANCE</td>
+<td>Float</td>
+<td>ReceiveMissChance</td>
+<td>0.0</td>
+<td>Probability (0-1) that received Epoch message is ignored.</td>
+</tr>
+<tr>
+<td>ERROR_CHANCE</td>
+<td>Float</td>
+<td>ErrorChance</td>
+<td>0.0</td>
+<td>Probability (0-1) that Error message is sent after receiving Epoch message.</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 
