@@ -2,467 +2,472 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://simcesplatform.github.io/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/about/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_abstractsimulationcomponent/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_amqp-footprint/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_amqpmathtool/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_block-quantity-array/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_block-quantity/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_block-time-series/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_cmp-mgmt/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_component-manifest/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_conv-msg/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_conv-name/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_create-cmp/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_develop-overview/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_docker-image/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_dummycomponent/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_exchange-mgmt/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_exchange-sim/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_features/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_follow-run/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_install/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_lifecycle/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_log-api/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_logging-system/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_logwriter/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_msg-abstractmessage/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_msg-abstractresult/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_msg-epoch/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_msg-simstate/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_msg-start/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_msg-status/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_msg/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_msgtype/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_platform-settings/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_platformmanager/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_pseudocode/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_rabbitmq-reliability/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_run-first/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_run-preparations/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_run/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_sim-tools/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_simulationmanager/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_soa/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_start-simulation/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_stop-simulation/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_time/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_topics-queues-exchanges/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_topics/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_ucum/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_workflow-sim/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/core_workflow-start-end/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_controller/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_conventions/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_distribution-management-system-dms/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_economicdispatch/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_grid-dss/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-controlstate-powersetpoint/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-dmsnetworkstatus-current/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-dmsnetworkstatus-voltage/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-flexibilityneed/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-init-cis-customerinfo/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-init-nis-networkbusinfo/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-init-nis-networkcomponentinfo/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-lfmmarketresult/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-lfmoffering/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-networkforecaststate-current/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-networkforecaststate-voltage/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-networkstate-current/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-networkstate-loss/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-networkstate-voltage/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-offer/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-priceforecaststate/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-request/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-resourceforecaststate-dispatch/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-resourceforecaststate-power/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-resourcestate/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-selectedoffer/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msg-startmessageblocks/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_msgtype/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_overview/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_priceforecaster/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_procem-lfm/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_resourceforecaster/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_run-ec-demo/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_scenario-ec-demo/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_software-pkg/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_static-time-series-resource/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_storage/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_topic-priceforecaststate/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_topic-resourceforecaststate/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_topic-resourcestate/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/energy_topics/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://simcesplatform.github.io/license/</loc>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://simcesplatform.github.io/maintenance-plan/</loc>
-         <lastmod>2022-03-31</lastmod>
+         <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
