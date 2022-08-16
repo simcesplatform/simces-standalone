@@ -572,7 +572,7 @@
 <pre><code class="language-nohighlight">{
   (Fields of AbstractMessage and AbstractResult must appear too!)
 
-  &quot;Bus&quot; : &quot;loadbus1&quot;,
+  &quot;CustomerId&quot; : &quot;customer1&quot;,
   &quot;RealPower&quot; : { &quot;Value&quot;: 100.0, &quot;UnitOfMeasure&quot;: &quot;kW&quot; },
   &quot;ReactivePower&quot; : { &quot;Value&quot;: 0.0, &quot;UnitOfMeasure&quot;: &quot;kV.A{r}&quot; },
   &quot;Node&quot; : 2, // Optional
@@ -597,10 +597,10 @@
 <td>Fields from the "abstract base class"</td>
 </tr>
 <tr>
-<td>Bus</td>
+<td>CustomerId</td>
 <td>String</td>
 <td>1 (REQUIRED)</td>
-<td>Name of bus to which the resource is connected.</td>
+<td>A unique id given to each customer by its DSO. Since a customer could have several resources with different ResourceIds, it is possible that one CustomerId is used for several ResourceIds.</td>
 </tr>
 <tr>
 <td>RealPower</td>
