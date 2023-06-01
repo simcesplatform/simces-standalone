@@ -17,18 +17,18 @@ Simulation:
 Components:  # these are the names of the component implementations (defined in the supported components JSON file)
     # duplication_count is reserved keyword and cannot be used as a parameter for a component instance
 
-    Grid:                            # The statistically deployed Grid component type
+    Grid:                            # The externally managed Grid component type
         Grid:                        # The name of the Grid instance in the simulation run
             ModelName: "EC_Network"  # The grid model name that will be sent as a part of the Start message
             Symmetrical: false
 
-    Dummy:                        # The dynamically deployed Dummy component to slow down the simulation
+    Dummy:                        # The platform managed Dummy component to slow down the simulation
         dummy:                    # The base name for the Dummy components
             duplication_count: 2  # Create 2 components, named dummy_1 and dummy_2, with otherwise identical parameters
             MinSleepTime: 1
             MaxSleepTime: 5
 
-    StaticTimeSeriesResource:    # The dynamically deployed Static Time Series Resource component
+    StaticTimeSeriesResource:    # The platform managed Static Time Series Resource component
         load1:                   # The name of this StaticTimeSeriesResource instance in the simulation run
             ResourceType: "Load"                       # corresponds to RESOURCE_TYPE environment variable
             ResourceStateFile: "/resources/Load1.csv"  # corresponds to RESOURCE_STATE_FILE environment variable

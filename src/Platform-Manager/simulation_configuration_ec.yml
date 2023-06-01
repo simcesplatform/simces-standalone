@@ -15,11 +15,11 @@ Simulation:
     MessageBufferMaxInterval: 5.0
 
 Components:
-    #Dummy:
+    Dummy:
         # Include one dummy component to slow down the simulation
-        #dummy:
-            #MinSleepTime: 2.5
-            #MaxSleepTime: 5.0
+        dummy:
+            MinSleepTime: 2.5
+            MaxSleepTime: 5.0
 
     StaticTimeSeriesResource:
         load_1:
