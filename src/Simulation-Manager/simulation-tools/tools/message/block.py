@@ -130,7 +130,8 @@ class QuantityBlock():
 class ValueArrayBlock:
     """
     Represents an array of values with an associated unit of measurement.
-    The allowed value types are int, float, str and bool. The value array can contain only one type of values.
+    The allowed value types are int, float, str and bool. The value array can
+    contain only one type of values where int and float together are seen as a number value.
     """
     ALLOWED_VALUE_TYPES = [int, float, str, bool]
 
@@ -142,7 +143,7 @@ class ValueArrayBlock:
     # By default the unit code validator is not in use.
     UNIT_CODE_VALIDATION = False
 
-    def __init__(self, Values: Union[List[int], List[float], List[str], List[bool]], UnitOfMeasure: str):
+    def __init__(self, Values: Union[List[Union[int, float]], List[str], List[bool]], UnitOfMeasure: str):
         """Creates a new value array block. Throws an exception if parameters contain invalid values."""
         self.values = Values
         self.unit_of_measure = UnitOfMeasure
@@ -153,7 +154,7 @@ class ValueArrayBlock:
         return self.__unit_of_measure
 
     @property
-    def values(self) -> Union[List[bool], List[int], List[float], List[str]]:
+    def values(self) -> Union[List[Union[int, float]], List[str], List[bool]]:
         """The values for the value array block"""
         return self.__values
 
@@ -164,7 +165,7 @@ class ValueArrayBlock:
         self.__unit_of_measure = unit_of_measure
 
     @values.setter
-    def values(self, values: Union[List[bool], List[int], List[float], List[str]]):
+    def values(self, values: Union[List[Union[int, float]], List[str], List[bool]]):
         if not self._check_values(values):
             raise MessageValueError("'{:s}' is not a valid for value array block".format(str(values)))
         self.__values = values
@@ -177,16 +178,21 @@ class ValueArrayBlock:
         )
 
     @classmethod
-    def _check_values(cls, values: Union[List[bool], List[int], List[float], List[str]]) -> bool:
+    def _check_values(cls, values: Union[List[Union[int, float]], List[str], List[bool]]) -> bool:
         if not isinstance(values, list):
             return False
         if not values:  # accept empty list
             return True
-
+        
         value_type = type(values[0])
         if value_type not in cls.ALLOWED_VALUE_TYPES:  # check that the first value is a valid type
             return False
 
+        # treat int and float as forming the number type
+        NUMBER_TYPES = [ int, float ]
+        if value_type in NUMBER_TYPES:
+            value_type = tuple(NUMBER_TYPES)
+        
         for value in values:
             # Check that all the values in the list are of the same type.
             if not isinstance(value, value_type):
@@ -239,17 +245,17 @@ class ValueArrayBlock:
 
 class QuantityArrayBlock(ValueArrayBlock):
     """
-    Represents an array of float values with an associated unit of measurement.
+    Represents an array of number values with an associated unit of measurement.
     """
-    ALLOWED_VALUE_TYPES = [float]
+    ALLOWED_VALUE_TYPES = [int, float]
 
     @property
-    def values(self) -> List[float]:
+    def values(self) -> List[Union[int, float]]:
         """The values for the value array block"""
         return self.__values
 
     @values.setter
-    def values(self, values: List[float]):
+    def values(self, values: List[Union[int, float]]):
         if not self._check_values(values):
             raise MessageValueError("'{:s}' is not a valid for value array block".format(str(values)))
         self.__values = values
@@ -330,7 +336,7 @@ class TimeSeriesBlock():
                 str(series_name), str(series_values)))
 
     @classmethod
-    def _check_time_index(cls, time_index: List[Union[str, datetime.datetime]], list_length: int = None) -> bool:
+    def _check_time_index(cls, time_index: List[Union[str, datetime.datetime]], list_length: Union[int, None] = None) -> bool:
         if not isinstance(time_index, list):
             return False
         if list_length is not None and len(time_index) != list_length:
@@ -346,7 +352,7 @@ class TimeSeriesBlock():
         return True
 
     @classmethod
-    def _check_series(cls, series: Dict[str, Union[ValueArrayBlock, Dict[str, Any]]], list_length: int = None) -> bool:
+    def _check_series(cls, series: Dict[str, Union[ValueArrayBlock, Dict[str, Any]]], list_length: Union[int, None] = None) -> bool:
         # There must be at least one series
         if not isinstance(series, dict) or len(series) == 0:
             return False

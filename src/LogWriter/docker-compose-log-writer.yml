@@ -5,8 +5,8 @@ services:
   log_writer:
     build:
       context: .
-      dockerfile: Dockerfile-log-writer
-    image: log_writer:0.1
+      dockerfile: Dockerfile-logwriter
+    image: log_writer:1.0.4
     container_name: log_writer
     restart: "no"
     env_file:

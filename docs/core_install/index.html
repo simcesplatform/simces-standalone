@@ -608,6 +608,7 @@
 </ul>
 </li>
 <li><a href="https://docs.docker.com/get-docker/">Docker</a> and <a href="https://docs.docker.com/compose/install/">Docker Compose</a><ul>
+<li>A recent version of Docker includes Docker Compose, so a separate installation of Docker Compose is not necessary in that case.</li>
 <li>For running platform managed components for the simulations.</li>
 <li>For running the local RabbitMQ message bus as well as the local MongoDB database. These are installed by the installation scripts.</li>
 <li>Installing the most up-to-date versions of Docker and Docker Compose is the recommended option.</li>
@@ -759,10 +760,11 @@ docker rm simces_log_writer_management
 <p>After these steps, the simulation platform should be ready for starting test simulation run. To see instructions on how to start a simulation run see the page <a href="../core_run/">Running a simulation</a>.</p>
 <h2 id="uninstalling-the-core-components">Uninstalling the core components</h2>
 <p>The following commands are to be used in the installation folder using a terminal that supports Bash.</p>
+<p>Note: if you are using an old version of Docker and separately installed Docker Compose, replace <code>docker compose</code> with <code>docker-compose</code> in the following commands.</p>
 <ul>
 <li>
 <p>To stop the running core components:</p>
-<pre class="codehilite"><code class="language-bash">docker-compose -f background/docker-compose-background.yml down --remove-orphans
+<pre class="codehilite"><code class="language-bash">docker compose -f background/docker-compose-background.yml down --remove-orphans
 </code></pre>
 
 </li>
@@ -781,7 +783,7 @@ docker rm simces_log_writer_management
 <li>For systems that have other Docker related things installed it is possibly not reasonable to run the general removal command. Use the following at your own discretion.</li>
 <li>
 <p>To stop and remove the background components:</p>
-<pre class="codehilite"><code class="language-bash">docker-compose -f background/docker-compose-background.yml down --remove-orphans
+<pre class="codehilite"><code class="language-bash">docker compose -f background/docker-compose-background.yml down --remove-orphans
 </code></pre>
 
 </li>
@@ -819,7 +821,7 @@ docker ps --all --filter name=&quot;simces&quot; --filter name=&quot;Sim&quot; -
         <footer class="col-md-12">
             <hr>
             <p>SimCES | Simulation Environment of Complex Energy System</p>
-                <p>Copyright &copy; 2021-2022 Tampere University and VTT Technical Research Centre of Finland</p>
+                <p>Copyright &copy; 2021-2023 Tampere University and VTT Technical Research Centre of Finland</p>
             <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a> [<a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC2119</a>] [<a href="https://datatracker.ietf.org/doc/html/rfc8174">RFC8174</a>] when, and only when, they appear in all capitals, as shown here.</p>
             <p>Get source code from GitHub: <a href="https://github.com/simcesplatform">https://github.com/simcesplatform</a> (MIT license; see the source code or <a href="../license">license</a>)</p>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>

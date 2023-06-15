@@ -4,6 +4,17 @@
 # This source code is licensed under the MIT license. See LICENSE in the repository root directory.
 # Author(s): Ville Heikkilä <ville.heikkila@tuni.fi>
 
+exists() {
+    command -v "$1" >/dev/null 2>&1;
+}
+
+if exists "docker compose"
+then
+    compose_command="docker compose"
+else
+    compose_command="docker-compose"
+fi
+
 # Get the current UTC time in ISO 8601 format in millisecond precision.
 simulation_id=$(date --utc +"%FT%T.%3NZ")
 
@@ -24,4 +35,4 @@ do
 done
 
 # Start a new simulation
-docker-compose --file docker-compose-full.yml up --detach
+$compose_command --file docker-compose-full.yml up --detach

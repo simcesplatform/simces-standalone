@@ -3,7 +3,7 @@ version: '3.5'
 services:
 
   rabbitmq:
-    image: rabbitmq:3.8.4-management
+    image: rabbitmq:3.8.34-management
     container_name: rabbitmq
     restart: always
     ports:
@@ -15,7 +15,7 @@ services:
       - rabbitmq_network_full
 
   mongodb:
-    image: mongo:4.2.7
+    image: mongo:4.2.24
     container_name: mongodb
     restart: always
     expose:
@@ -41,7 +41,7 @@ services:
       - mongodb_network_full
 
   log_reader:
-    image: log_reader:0.5.0
+    image: log_reader:1.0.3
     build:
       context: logreader
       dockerfile: Dockerfile
@@ -57,7 +57,7 @@ services:
       - mongodb_network_full
 
   log_writer:
-    image: log_writer:0.5.0
+    image: log_writer:1.0.4
     build:
       context: logwriter
       dockerfile: Dockerfile-log-writer
@@ -79,7 +79,7 @@ services:
       - rabbitmq_network_full
 
   simulation_manager:
-    image: simulation_manager:0.5.0
+    image: simulation_manager:1.0.4
     build:
       context: simulation-manager
       dockerfile: Dockerfile-manager
@@ -98,7 +98,7 @@ services:
       - rabbitmq_network_full
 
   dummy_1:
-    image: dummy:0.5.0
+    image: dummy:1.0.4
     build:
       context: simulation-manager
       dockerfile: Dockerfile-dummy
@@ -119,7 +119,7 @@ services:
       - rabbitmq_network_full
 
   dummy_2:
-    image: dummy:0.5.0
+    image: dummy:1.0.4
     build:
       context: simulation-manager
       dockerfile: Dockerfile-dummy
@@ -140,7 +140,7 @@ services:
       - rabbitmq_network_full
 
   dummy_3:
-    image: dummy:0.5.0
+    image: dummy:1.0.4
     build:
       context: simulation-manager
       dockerfile: Dockerfile-dummy
@@ -161,7 +161,7 @@ services:
       - rabbitmq_network_full
 
   dummy_4:
-    image: dummy:0.5.0
+    image: dummy:1.0.4
     build:
       context: simulation-manager
       dockerfile: Dockerfile-dummy
@@ -182,7 +182,7 @@ services:
       - rabbitmq_network_full
 
   dummy_5:
-    image: dummy:0.5.0
+    image: dummy:1.0.4
     build:
       context: simulation-manager
       dockerfile: Dockerfile-dummy

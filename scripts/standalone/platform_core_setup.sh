@@ -7,6 +7,17 @@
 # Builds the core components and starts the background containers for the Simulation platform.
 # Note, for the standalone platform version
 
+exists() {
+    command -v "$1" >/dev/null 2>&1;
+}
+
+if exists "docker compose"
+then
+    compose_command="docker compose"
+else
+    compose_command="docker-compose"
+fi
+
 echo "Creating Docker volumes for the simulation platform."
 docker volume create simces_mongodb_data
 docker volume create simces_simulation_configuration
@@ -28,7 +39,7 @@ source build_docker_images.sh docker_images_core_standalone.txt
 
 echo ""
 echo "Starting the background Docker containers."
-docker-compose --file background/docker-compose-background.yml up --detach
+$compose_command --file background/docker-compose-background.yml up --detach
 
 echo ""
 echo "Copying the component manifests."

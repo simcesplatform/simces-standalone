@@ -1,6 +1,7 @@
 .git
 **/__pycache__
 **/*.pyc
+**/node_modules
 .vscode
 logfile.log
 logs/*.log

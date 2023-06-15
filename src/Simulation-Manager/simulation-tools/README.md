@@ -466,19 +466,23 @@ When implementing a new simulation component in Python it is advisable to try to
 
 ## Run unit tests for the simulation-tools library
 
+Note: if you are using an old version of Docker and separately installed Docker Compose, in the following replace `docker compose` with `docker-compose`
+
 ```bash
 docker network create tools_test_network
-docker-compose -f rabbitmq/docker-compose-rabbitmq.yml up --detach
-docker-compose -f mongodb/docker-compose-mongodb.yml up --detach
+docker compose -f rabbitmq/docker-compose-rabbitmq.yml up --detach
+docker compose -f mongodb/docker-compose-mongodb.yml up --detach
 # Wait a few seconds to allow the local RabbitMQ message bus to initialize.
-docker-compose -f docker-compose-tests.yml up --build
+docker compose -f docker-compose-tests.yml up --build
 ```
+
+To see more log output during the tests use a lower number for `SIMULATION_LOG_LEVEL` in the file `docker-compose-tests.yml`, for example `SIMULATION_LOG_LEVEL=30`, and run the last command again. By default only critical log messages are shown since some of the tests will output error level log messages even when the unit tests are passing.
 
 ## Clean up after running the tests
 
 ```bash
-docker-compose -f rabbitmq/docker-compose-rabbitmq.yml down --remove-orphans
-docker-compose -f mongodb/docker-compose-mongodb.yml down --remove-orphans
-docker-compose -f docker-compose-tests.yml down --remove-orphans
+docker compose -f rabbitmq/docker-compose-rabbitmq.yml down --remove-orphans
+docker compose -f mongodb/docker-compose-mongodb.yml down --remove-orphans
+docker compose -f docker-compose-tests.yml down --remove-orphans
 docker network rm tools_test_network
 ```

@@ -78,11 +78,13 @@ git update-index --skip-worktree env/common.env rabbitmq/rabbitmq.env
 
 ## Start local RabbitMQ server
 
+Note: if you are using an old version of Docker and separately installed Docker Compose, in the following replace `docker compose` with `docker-compose`
+
 Edit the username and password in the file [`rabbitmq/rabbitmq.env`](rabbitmq/rabbitmq.env)
 
 ```bash
 docker network create rabbitmq_network
-docker-compose -f rabbitmq/docker-compose-rabbitmq.yml up --detach
+docker compose -f rabbitmq/docker-compose-rabbitmq.yml up --detach
 ```
 
 ## Run test simulation
@@ -93,14 +95,14 @@ Running the `create_new_simulation_id.sh` script creates new simulation id based
 
 ```bash
 source create_new_simulation_id.sh
-docker-compose -f docker-compose-test-simulation.yml up --build
+docker compose -f docker-compose-test-simulation.yml up --build
 ```
 
 Or to just see all the messages in the message bus:
 
 ```bash
-docker-compose -f docker_tests/docker-compose-listener.yml up --build --detach
-docker-compose -f docker-compose-test-simulation.yml up --build --detach
+docker compose -f docker_tests/docker-compose-listener.yml up --build --detach
+docker compose -f docker-compose-test-simulation.yml up --build --detach
 docker attach listener_component
 ```
 
@@ -108,8 +110,8 @@ docker attach listener_component
 
 ```bash
 docker network create manager_test_network
-docker-compose -f docker_tests/docker-compose-rabbitmq.yml up --detach
-docker-compose -f docker_tests/docker-compose-tests.yml up --build
+docker compose -f docker_tests/docker-compose-rabbitmq.yml up --detach
+docker compose -f docker_tests/docker-compose-tests.yml up --build
 ```
 
 Only unit test for the manager and dummy component are run. To run the unit tests defined in the simulation-tools submodule go into the the simulation-tools folder and follow the instructions there.
@@ -117,12 +119,12 @@ Only unit test for the manager and dummy component are run. To run the unit test
 ## Stop running simulation
 
 ```bash
-docker-compose -f docker_tests/docker-compose-listener.yml down --remove-orphans
-docker-compose -f docker-compose-test-simulation.yml down --remove-orphans
+docker compose -f docker_tests/docker-compose-listener.yml down --remove-orphans
+docker compose -f docker-compose-test-simulation.yml down --remove-orphans
 ```
 
 ## Stop local RabbitMQ server
 
 ```bash
-docker-compose -f rabbitmq/docker-compose-rabbitmq.yml down --remove-orphans
+docker compose -f rabbitmq/docker-compose-rabbitmq.yml down --remove-orphans
 ```

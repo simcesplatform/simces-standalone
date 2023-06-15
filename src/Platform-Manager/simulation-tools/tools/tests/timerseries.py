@@ -16,7 +16,7 @@ import unittest
 from tools.datetime_tools import to_iso_format_datetime_string
 from tools.exceptions.messages import MessageDateError, MessageValueError, MessageUnitValueError
 from tools.message.unit import UnitCode
-from tools.message.block import ValueArrayBlock, TimeSeriesBlock
+from tools.message.block import ValueArrayBlock, TimeSeriesBlock, QuantityArrayBlock
 
 
 def get_unit_code() -> Generator[str, None, None]:
@@ -112,6 +112,25 @@ class TestValueArrayBlock(unittest.TestCase):
                 Values=cast(list, test_attribute["Values"])
             )
             self.assertEqual(attribute_object, attribute_object2)
+    
+    def test_mixed_ints_and_floats(self):
+        """Unit test to check value array block and quantity array block can
+        have both ints and floats in the values list."""
+        # test data
+        data = [
+            { 'UnitOfMeasure': 'KWh', 'Values':  [ 1, 2, 0.3 ]},
+            { 'UnitOfMeasure': 'KWh', 'Values':  [ 0.1, 2, 3 ]},
+            { 'UnitOfMeasure': 'KWh', 'Values':  [ 1, 2, 3 ]},
+            { 'UnitOfMeasure': 'KWh', 'Values':  [ 0.1, 0.2, 0.3 ]}
+        ]
+
+        for item in data:
+            try:
+                QuantityArrayBlock( **item )
+                ValueArrayBlock( **item )
+
+            except MessageValueError as e:
+                self.fail( 'Should not raise MessageValueError: ' +str(e))
 
     def test_invalid_attributes(self):
         """Unit test for creating ValueArrayBlock objects with invalid input."""
@@ -120,7 +139,7 @@ class TestValueArrayBlock(unittest.TestCase):
         attribute_missing_values = {"UnitOfMeasure": "m"}
         attribute_invalid_unit = {"UnitOfMeasure": "mmmm", "Values": [1, 2, 3]}
         attribute_invalid_values = {"UnitOfMeasure": "m", "Values": [[], []]}
-        attribute_inconsistent_values1 = {"UnitOfMeasure": "m", "Values": [1, 2, 3.0]}
+        attribute_inconsistent_values1 = {"UnitOfMeasure": "m", "Values": [1, "2", 3.0]}
         attribute_inconsistent_values2 = {"UnitOfMeasure": "m", "Values": [1, "2", 3]}
         attribute_inconsistent_values3 = {"UnitOfMeasure": "m", "Values": [True, False, 3]}
 

@@ -1,4 +1,4 @@
-FROM python:3.7.9
+FROM python:3.7.16
 LABEL org.opencontainers.image.source https://github.com/simcesplatform/platform-manager
 LABEL org.opencontainers.image.description "Docker image for the platform manager. Docker image source: Dockerfile"
 

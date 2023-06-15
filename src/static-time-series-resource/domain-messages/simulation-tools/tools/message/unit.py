@@ -30,7 +30,7 @@ class UnitCode:
     # Name of the Javascript UCUM unit code validator.
     # The use of the validator requires that NodeJS is installed in the system.
     JAVASCRIPT_VALIDATOR = "validator.js"
-    JAVASCRIPT_SYSTEM_CALL = "nodejs"
+    JAVASCRIPT_SYSTEM_CALL = "node"
     VALIDATOR_VALID_TEXT = "valid"
     VALIDATOR_RESULT_SEPARATOR = ";"
 

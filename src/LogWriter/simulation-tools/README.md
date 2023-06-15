@@ -41,13 +41,13 @@ Tools for working with simulation messages and with the RabbitMQ message bus in 
     - `AbstractMessage` (defined in [tools/message/abstract.py](tools/message/abstract.py))
         - Child class of BaseMessage
         - Adds SourceProcessId and MessageId attributes
-        - Definition: [AbstractMessage](https://wiki.eduuni.fi/pages/viewpage.action?spaceKey=tuniSimCES&title=AbstractMessage)
+        - Definition: [AbstractMessage](https://simcesplatform.github.io/core_msg-abstractmessage/)
         - `source_process_id` property corresponds to the JSON attribute SourceProcessId
         - `message_id` property corresponds to the JSON attribute MessageId
     - `AbstractResultMessage` (defined in [tools/message/abstract.py](tools/message/abstract.py))
         - Child class of AbstractMessage
         - Adds EpochNumber, LastUpdatedInEpoch, TriggeringMessageIds and Warnings
-        - Definition [AbstractResult](https://wiki.eduuni.fi/display/tuniSimCES/AbstractResult)
+        - Definition [AbstractResult](https://simcesplatform.github.io/core_msg-abstractresult/)
         - `epoch_number` property corresponds to the JSON attribute EpochNumber
         - `last_updated_in_epoch` property corresponds to the JSON attribute LastUpdatedInEpoch
         - `triggering_message_ids` property corresponds to the JSON attribute TriggeringMessageIds
@@ -55,20 +55,20 @@ Tools for working with simulation messages and with the RabbitMQ message bus in 
     - `SimulationStateMessage` (defined in [tools/message/simulation_state.py](tools/message/simulation_state.py))
         - Child class of AbstractMessage
         - Adds SimulationState, Name and Description
-        - Definition: [SimState](https://wiki.eduuni.fi/display/tuniSimCES/SimState)
+        - Definition: [SimState](https://simcesplatform.github.io/core_msg-simstate)
         - `simulation_state` property corresponds to the JSON attribute SimulationState
         - `name` property corresponds to the JSON attribute Name
         - `Description` property corresponds to the JSON attribute Description
     - `EpochMessage` (defined in [tools/message/epoch.py](tools/message/epoch.py))
         - Child class of AbstractResultMessage
         - Adds StartTime and EndTime
-        - Definition: [Epoch](https://wiki.eduuni.fi/display/tuniSimCES/Epoch)
+        - Definition: [Epoch](https://simcesplatform.github.io/core_msg-epoch/)
         - `start_time` property corresponds to the JSON attribute StartTime
         - `end_time` property corresponds to the JSON attribute EndTime
     - `StatusMessage` (defined in [tools/message/status.py](tools/message/status.py))
         - Child class of AbstractResultMessage
         - Adds Value and Description
-        - Definition: [Status](https://wiki.eduuni.fi/display/tuniSimCES/Status)
+        - Definition: [Status](https://simcesplatform.github.io/core_msg-status/)
         - `value` property corresponds to the JSON attribute Value
         - `description` property corresponds to the JSON attribute Description
     - `ResultMessage`
@@ -80,10 +80,10 @@ Tools for working with simulation messages and with the RabbitMQ message bus in 
         - Similar to ResultMessage but only requires the SimulationId and Timestamp attributes
     - `ExampleMessage`
         - Child class of AbstractResult
-        - Not to be used in the actual simulation components but made as an example for a message type that uses [Quantity block](https://wiki.eduuni.fi/display/tuniSimCES/Quantity+block), [Quantity array block](https://wiki.eduuni.fi/display/tuniSimCES/Quantity+array+block) and [Time series block](https://wiki.eduuni.fi/display/tuniSimCES/Time+series+block) as the attribute value types.
+        - Not to be used in the actual simulation components but made as an example for a message type that uses [Quantity block](https://simcesplatform.github.io/core_block-quantity/), [Quantity array block](https://simcesplatform.github.io/core_block-quantity-array/) and [Time series block](https://simcesplatform.github.io/core_block-time-series/) as the attribute value types.
 - Common methods for all message classes:
     - `__init__` (constructor)
-        - Takes in all the arguments as defined in the wiki pages for the message.
+        - Takes in all the arguments as defined in the documentation pages for the message.
         - Any additional arguments that are not part of the message definition are ignored.
         - Does some validity checks for the attribute values and throws an exception if at least one value was found to be invalid. For example, the EpochNumber must be a non-negative integer.
     - `from_json` (class method)
@@ -99,13 +99,13 @@ Tools for working with simulation messages and with the RabbitMQ message bus in 
 - Class for QuantityBlock that can be used as a value for a message attribute
     - QuantityBlock is constructed similarly to the message classes
     - Supports Value and UnitOfMeasure attributes
-    - Definition: [Quantity block](https://wiki.eduuni.fi/display/tuniSimCES/Quantity+block)
+    - Definition: [Quantity block](https://simcesplatform.github.io/core_block-quantity/)
     - `value` property corresponds to the JSON attribute Value
     - `unit_of_measure` property corresponds to the JSON attribute UnitOfMeasure
 - Class for TimeSeriesBlock that can be used as a value for a message attribute
     - TimeSeriesBlock is constructed similarly to the message classes
     - Supports TimeIndex and Series attributes
-    - Definition: [Time series block](https://wiki.eduuni.fi/display/tuniSimCES/Time+series+block)
+    - Definition: [Time series block](https://simcesplatform.github.io/core_block-time-series/)
     - `time_index` property corresponds to the JSON attribute TimeIndex
     - `series` property corresponds to the JSON attribute Series
     - A separate class ValueArrayBlock that can be used as a value for the value series inside a Time series block
@@ -115,7 +115,7 @@ Tools for working with simulation messages and with the RabbitMQ message bus in 
 - Class for QuantityArrayBlock that can be used as a value for a message attribute
     - QuantityArrayBlock is child class of ValueArrayBlock that only allows float values
     - Supports Values and UnitOfMeasure attributes
-    - Definition: [Quantity array block](https://wiki.eduuni.fi/display/tuniSimCES/Quantity+array+block)
+    - Definition: [Quantity array block](https://simcesplatform.github.io/core_block-quantity-array/)
     - `values` property corresponds to the JSON attribute Values
     - `unit_of_measure` property corresponds to the JSON attribute UnitOfMeasure
 - Implementation for all the block types are found at [tools/message/block.py](tools/message/block.py)
@@ -374,20 +374,20 @@ Assumption is that the new message type is based on AbstractResult message.
 
 There are some examples available:
 
-- The Python class for [Epoch](https://wiki.eduuni.fi/display/tuniSimCES/Epoch) message can be found at [tools/message/epoch.py](tools/message/epoch.py)
-- The Python class for [Status](https://wiki.eduuni.fi/display/tuniSimCES/Status) message can be found at [tools/message/status.py](tools/message/status.py)
-- The Python class for Example message type can be found at [tools/message/example.py](tools/message/example.py). This example message type is made as an example of a message that adds some attributes to the AbstractResult message type with some of the attributes using the [Quantity block](https://wiki.eduuni.fi/display/tuniSimCES/Quantity+block) or [Time series block](https://wiki.eduuni.fi/pages/viewpage.action?spaceKey=tuniSimCES&title=Time+series+block) as the attribute values.
+- The Python class for [Epoch](https://simcesplatform.github.io/core_msg-epoch/) message can be found at [tools/message/epoch.py](tools/message/epoch.py)
+- The Python class for [Status](https://simcesplatform.github.io/core_msg-status/) message can be found at [tools/message/status.py](tools/message/status.py)
+- The Python class for Example message type can be found at [tools/message/example.py](tools/message/example.py). This example message type is made as an example of a message that adds some attributes to the AbstractResult message type with some of the attributes using the [Quantity block](https://simcesplatform.github.io/core_block-quantity/) or [Time series block](https://simcesplatform.github.io/core_block-time-series/) as the attribute values.
 
 A template for a new message type is given at [`message_template.txt`](message_template.txt).
 
 - The current implementation of the message classes is quite verbose but a template is provided to make it easier for the development of new message classes.
 - All `<message type>`, `<property name 1>`, ... should be replaced with the appropriate names for the new message. For example `<message type>` for a NetworkState.Current message could be NetworkStateCurrentMessage.
-- Attributes containing [Quantity blocks](https://wiki.eduuni.fi/display/tuniSimCES/Quantity+block) as attributes have special support. However, no such support exists yet for [Quantity array block](https://wiki.eduuni.fi/display/tuniSimCES/Quantity+array+block) or [Time series block](https://wiki.eduuni.fi/display/tuniSimCES/Time+series+block).
+- Attributes containing [Quantity blocks](https://simcesplatform.github.io/core_block-quantity/) as attributes have special support. However, no such support exists yet for [Quantity array block](https://simcesplatform.github.io/core_block-quantity-array/) or [Time series block](https://simcesplatform.github.io/core_block-time-series/).
 - Existing message classes can be used as examples when implementing new message classes.
 - Overview of what is required from a new message class for it to be compatible with the existing message classes:
     - Set the class constants `CLASS_MESSAGE_TYPE`, `MESSAGE_TYPE_CHECK`, `MESSAGE_ATTRIBUTES`, `OPTIONAL_ATTRIBUTES`, `QUANTITY_BLOCK_ATTRIBUTES`, `TIMESERIES_BLOCK_ATTRIBUTES`, `MESSAGE_ATTRIBUTES_FULL`, `OPTIONAL_ATTRIBUTES_FULL`, `QUANTITY_BLOCK_ATTRIBUTES_FULL` and `TIMESERIES_BLOCK_ATTRIBUTES_FULL` with the instructions given in the template.
-    - Add a property getter for each new attribute in the message (those attributes that don't belong to [AbstractResult](https://wiki.eduuni.fi/display/tuniSimCES/AbstractResult)).
-    - Add a property setter for each new attribute in the message (those attributes that don't belong to [AbstractResult](https://wiki.eduuni.fi/display/tuniSimCES/AbstractResult)).
+    - Add a property getter for each new attribute in the message (those attributes that don't belong to [AbstractResult](https://simcesplatform.github.io/core_msg-abstractresult/)).
+    - Add a property setter for each new attribute in the message (those attributes that don't belong to [AbstractResult](https://simcesplatform.github.io/core_msg-abstractresult/)).
     - Add a check function (with a name of `"_check_<property name>"` for each property that checks the validity of the given value. This can be very general in some cases. For example, "isinstance(value, str) and len(value) > 0" would ensure that "value" is a non-empty string.
     - Add a new implementation for the equality check method `"__eq__"`.
     - Add a new implementation for the "from_json" method. This is only for the return value type for the use of Python linters, not for any actual additional functionality.
@@ -466,19 +466,23 @@ When implementing a new simulation component in Python it is advisable to try to
 
 ## Run unit tests for the simulation-tools library
 
+Note: if you are using an old version of Docker and separately installed Docker Compose, in the following replace `docker compose` with `docker-compose`
+
 ```bash
 docker network create tools_test_network
-docker-compose -f rabbitmq/docker-compose-rabbitmq.yml up --detach
-docker-compose -f mongodb/docker-compose-mongodb.yml up --detach
+docker compose -f rabbitmq/docker-compose-rabbitmq.yml up --detach
+docker compose -f mongodb/docker-compose-mongodb.yml up --detach
 # Wait a few seconds to allow the local RabbitMQ message bus to initialize.
-docker-compose -f docker-compose-tests.yml up --build
+docker compose -f docker-compose-tests.yml up --build
 ```
+
+To see more log output during the tests use a lower number for `SIMULATION_LOG_LEVEL` in the file `docker-compose-tests.yml`, for example `SIMULATION_LOG_LEVEL=30`, and run the last command again. By default only critical log messages are shown since some of the tests will output error level log messages even when the unit tests are passing.
 
 ## Clean up after running the tests
 
 ```bash
-docker-compose -f rabbitmq/docker-compose-rabbitmq.yml down --remove-orphans
-docker-compose -f mongodb/docker-compose-mongodb.yml down --remove-orphans
-docker-compose -f docker-compose-tests.yml down --remove-orphans
+docker compose -f rabbitmq/docker-compose-rabbitmq.yml down --remove-orphans
+docker compose -f mongodb/docker-compose-mongodb.yml down --remove-orphans
+docker compose -f docker-compose-tests.yml down --remove-orphans
 docker network rm tools_test_network
 ```

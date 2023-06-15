@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-manager
-    image: simulation_manager:0.3
+    image: simulation_manager:1.0.4
     container_name: simulation_manager
     restart: "no"
     env_file:
@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-dummy
-    image: dummy:0.3
+    image: dummy:1.0.4
     container_name: dummy_component_1
     restart: "no"
     env_file:
@@ -39,7 +39,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-dummy
-    image: dummy:0.3
+    image: dummy:1.0.4
     container_name: dummy_component_2
     restart: "no"
     env_file:
@@ -57,7 +57,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-dummy
-    image: dummy:0.3
+    image: dummy:1.0.4
     container_name: dummy_component_3
     restart: "no"
     env_file:
@@ -75,7 +75,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-dummy
-    image: dummy:0.3
+    image: dummy:1.0.4
     container_name: dummy_component_4
     restart: "no"
     env_file:
@@ -93,7 +93,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-dummy
-    image: dummy:0.3
+    image: dummy:1.0.4
     container_name: dummy_component_5
     restart: "no"
     env_file:

@@ -14,7 +14,7 @@ import json
 from typing import Any, cast, Dict
 
 from tools.clients import RabbitmqClient
-from tools.tools import FullLogger, EnvironmentVariable
+from tools.tools import FullLogger, EnvironmentVariable, log_exception
 
 from platform_manager.docker_runner import ContainerStarter
 from platform_manager.platform_environment import PlatformEnvironment
@@ -121,14 +121,18 @@ class PlatformManager:
 
 async def start_platform_manager():
     """Starts the Platform manager process."""
-    platform_manager = PlatformManager()
+    try:
+        platform_manager = PlatformManager()
 
-    configuration_filename = cast(str, EnvironmentVariable(SIMULATION_CONFIGURATION_FILE, str, "").value)
-    start_check = await platform_manager.start_simulation(configuration_filename)
-    if start_check:
-        LOGGER.debug("A new simulation run started.")
+        configuration_filename = cast(str, EnvironmentVariable(SIMULATION_CONFIGURATION_FILE, str, "").value)
+        start_check = await platform_manager.start_simulation(configuration_filename)
+        if start_check:
+            LOGGER.debug("A new simulation run started.")
 
-    await platform_manager.stop()
+        await platform_manager.stop()
+
+    except BaseException as error:  # pylint: disable=broad-except
+        log_exception(error)
 
 
 if __name__ == "__main__":

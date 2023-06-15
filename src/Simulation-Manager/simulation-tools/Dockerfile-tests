@@ -14,16 +14,16 @@ RUN rm /usr/bin/python3
 RUN ln -s python3.7 /usr/bin/python3
 RUN python3 -m pip install pip --upgrade
 
-# install MongoDB shell 4.2.7
+# install MongoDB shell 4.2.24
 RUN apt-get install -y gnupg wget
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add -
 RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list
 RUN apt-get update --fix-missing
-RUN apt-get install -y mongodb-org-shell=4.2.7
+RUN apt-get install -y mongodb-org-shell=4.2.24
 
-# install Node.js 12
+# install Node.js 16
 RUN apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs
 
@@ -34,14 +34,14 @@ RUN mkdir -p /tests/tools
 COPY requirements.txt /requirements.txt
 RUN python3 -m pip install -r /requirements.txt
 
+WORKDIR /tests
+
 # install the Node.js libraries
-COPY package.json /package.json
-RUN npm install -g
+COPY package*.json /tests/
+RUN npm clean-install
 
 # copy the source code files to the container
 COPY resources/ /tests/resources/
 COPY tools/ /tests/tools/
-
-WORKDIR /tests
 
 CMD [ "python3", "-u", "-m", "unittest", "discover", "-s", ".", "-p", "*.py" ]

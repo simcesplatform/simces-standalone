@@ -11,6 +11,7 @@ import functools
 import logging
 import os
 import sys
+from types import TracebackType
 from typing import Any, Callable, Dict, List, Optional, Tuple, Type, Union, cast
 
 SIMULATION_LOG_LEVEL = "SIMULATION_LOG_LEVEL"
@@ -70,7 +71,7 @@ class EnvironmentVariable:
 
     def __str__(self) -> str:
         """Returns the string representation of the variable name and value."""
-        return "{:s}: {:s}".format(self.variable_name, str(self.value))
+        return f"{self.variable_name}: {str(self.value)}"
 
 
 EnvironmentVariableSetupType = Union[
@@ -115,7 +116,7 @@ class EnvironmentVariables:
         if variable_name in self.__variables:
             return self.__variables[variable_name].value
 
-        LOGGER.info("Environment variable {:s} not registered.".format(variable_name))
+        LOGGER.info(f"Environment variable {variable_name} not registered.")
         return str()
 
 
@@ -239,6 +240,35 @@ def get_logger(logger_name: str, log_level: Optional[int] = None) -> logging.Log
 LOGGER = FullLogger(__name__)
 
 
+def traceback_to_str(traceback: Optional[TracebackType]) -> str:
+    """Return a string representation of the given traceback."""
+    if isinstance(traceback, TracebackType):
+        if traceback.tb_next is not None:
+            traceback_next = traceback_to_str(traceback.tb_next)
+        else:
+            traceback_next = ""
+        return f"\n{traceback.tb_frame}{traceback_next}"
+
+    return ""
+
+
+DEFAULT_EXCEPTION_LOG_START = "Encountered unhandled exception:"
+
+
+def log_exception(
+    error: BaseException,
+    logger_call: Callable = LOGGER.error,
+    log_start: str = DEFAULT_EXCEPTION_LOG_START
+) -> None:
+    """Logs information from the given exception."""
+    logger_call(
+        f"{log_start}\n" +
+        f"    Type: {type(error).__name__}\n"
+        f"    Message: {error}\n" +
+        f"    Traceback: {traceback_to_str(error.__traceback__)}"
+    )
+
+
 def async_wrap(synchronous_function: Callable):
     """Wraps a synchronous function to an asynchronous coroutine."""
     @functools.wraps(synchronous_function)
@@ -262,8 +292,10 @@ def handle_async_exception(event_loop, context):
         if isinstance(exception, SystemExit):
             LOGGER.debug("SystemExit caught by async exception handler.")
         elif isinstance(exception, RuntimeError):
-            LOGGER.debug("RuntimeError caught by async exception handler: {}".format(exception))
+            LOGGER.debug(f"RuntimeError caught by async exception handler: {exception}")
+        elif isinstance(exception, BaseException):
+            log_exception(exception, LOGGER.warning, "Async exception:")
         else:
-            LOGGER.debug("Async exception: {:s}".format(str(exception)))
+            LOGGER.warning(f"Async exception: {str(exception)}")
     else:
-        LOGGER.warning("Exception in async task: {:s}".format(str(context)))
+        LOGGER.warning(f"Exception in async task: {str(context)}")

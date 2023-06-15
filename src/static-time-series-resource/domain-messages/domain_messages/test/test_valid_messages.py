@@ -10,7 +10,7 @@
 #            Tanjim <tanjim0023@gmail.com>
 #            Ville Heikkilä <ville.heikkila@tuni.fi>
 #            Ville Mörsky (TAU) <ville.morsky@tuni.fi>
-"""Tests that take the domain message examples from the wiki pages and create message objects."""
+"""Tests that take the domain message examples from the documentation pages and create message objects."""
 
 import unittest
 

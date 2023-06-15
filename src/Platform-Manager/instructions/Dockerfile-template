@@ -3,7 +3,7 @@
 # the Static Time Series Resource component and should be changed
 
 # define the version of Python here
-FROM python:3.7.9
+FROM python:3.7.16
 
 # optional labels to provide metadata for the Docker image
 # (source: address to the repository, description: human-readable description)
@@ -26,8 +26,8 @@ RUN mkdir -p /domain-tools
 #
 # the required libraries are defined in the file requirements.txt and
 # at least the following should be included in there when using the common Python codes
-# aio_pika==6.6.1
-# aiounittest==1.4.0
+# aio_pika==6.8.2
+# aiounittest==1.4.2
 
 COPY requirements.txt /requirements.txt
 RUN pip install --upgrade pip

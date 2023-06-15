@@ -1,4 +1,4 @@
-FROM python:3.7.9
+FROM python:3.7.16
 
 RUN mkdir -p /tests/init
 RUN mkdir -p /tests/log_writer

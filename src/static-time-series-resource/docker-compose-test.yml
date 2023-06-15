@@ -3,7 +3,7 @@ version: '3.5'
 services:
 
   rabbitmq:
-    image: rabbitmq:3.8.4-management
+    image: rabbitmq:3.8.34-management
     restart: always
     logging:
       driver: "none"
@@ -28,7 +28,7 @@ services:
       - RABBITMQ_SSL=false
       - RABBITMQ_EXCHANGE=procem.static_time_series_resource
       - RABBITMQ_EXCHANGE_AUTODELETE=false
-      - RABBITMQ_EXCHANGE_DURABLE=false 
+      - RABBITMQ_EXCHANGE_DURABLE=false
     volumes:
       - simulation_logs:/logs
 

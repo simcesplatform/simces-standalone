@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-tests
-    image: simulation_tools_tests:0.3
+    image: simulation_tools_tests:1.0.4
     container_name: simulation_tools_tests
     restart: "no"
     environment:

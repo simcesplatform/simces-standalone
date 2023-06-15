@@ -1,5 +1,5 @@
 class <message type>(AbstractResultMessage):
-    CLASS_MESSAGE_TYPE = <message attribute "Type" as defined in wiki>
+    CLASS_MESSAGE_TYPE = <message attribute "Type" as defined in the documentation>
     MESSAGE_TYPE_CHECK = True
 
     # all attributes specific that are added to the AbstractResult should be introduced here

@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.7-nodejs12
+FROM nikolaik/python-nodejs:python3.7-nodejs16
 LABEL org.opencontainers.image.source https://github.com/simcesplatform/simulation-manager
 LABEL org.opencontainers.image.description "Docker image for the dummy component. Docker image source: Dockerfile-dummy"
 
@@ -14,8 +14,8 @@ RUN pip install -r /requirements.txt
 
 # install the Node.js libraries
 # this is required when using the time series classes and units which are not given in the premade list
-COPY package.json /package.json
-RUN npm install -g
+COPY package*.json /
+RUN npm clean-install
 
 COPY dummy/ /dummy/
 COPY init/ /init/

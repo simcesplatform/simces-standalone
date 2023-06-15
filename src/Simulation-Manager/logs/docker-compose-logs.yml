@@ -3,7 +3,7 @@ version: '3.5'
 services:
 
   log_access:
-    image: ubuntu:16.04
+    image: ubuntu:18.04
     container_name: log_access
     restart: "no"
     entrypoint: ["sleep", "10m"]

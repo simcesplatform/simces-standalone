@@ -43,7 +43,7 @@ def test_from_json():
     LOGGER.info("")
 
     # print out the attributes individually from the Status message
-    # NOTE: that the JSON attribute names use Pascal case (e.g. MessageId) as is defined in the wiki
+    # NOTE: that the JSON attribute names use Pascal case (e.g. MessageId) as is defined in the documentation
     #       while the message properties use snake case (e.g. message_id) as is usual in Python variables
     LOGGER.info("Type for Status message:                 {}".format(status_ready.message_type))
     LOGGER.info("SourceProcessId for Status message:      {}".format(status_ready.source_process_id))

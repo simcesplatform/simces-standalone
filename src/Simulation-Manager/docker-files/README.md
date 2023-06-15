@@ -1,8 +1,8 @@
-# Docker-compose file for full simulation setup
+# Docker compose file for full simulation setup
 
 Includes SimulationManager, 5 Dummy components, LogWriter, and LogReader as well as local Mongo database and RabbitMQ message bus server.
 
-Requires an environment with Bash, Docker, and docker-compose installed.
+Requires an environment with Bash, Docker, and Docker Compose installed.
 
 ## Setup
 
@@ -14,9 +14,9 @@ The docker-compose file assumes that the LogReader repository is at folder `logr
 
 3. Edit logging level at the environment variable file [`env/components_common.env`](env/components_common.env).
 
-4. Edit the simulation manager behaviour (for example the maximum number of epochs) at the environment variable file [`env/manager.env`](env/manager.env).
+4. Edit the simulation manager behavior (for example the maximum number of epochs) at the environment variable file [`env/manager.env`](env/manager.env).
 
-5. Edit the dummy component behaviour (for example the wait time before response) at the environment variable file [`env/dummy.env`](env/dummy.env).
+5. Edit the dummy component behavior (for example the wait time before response) at the environment variable file [`env/dummy.env`](env/dummy.env).
 
 6. Copy the script [`start_simulation.sh`](start_simulation.sh), the docker-compose file, [`docker-compose-env.yml`](docker-compose-env.yml), and the entire [`env`](env) folder to the root folder of the different repositories.
 

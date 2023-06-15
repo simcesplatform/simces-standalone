@@ -7,6 +7,7 @@
 """This module contains a client class for sending and listening to messages using a RabbitMQ message bus."""
 
 import asyncio
+import logging
 from typing import Dict, List, Optional, Tuple, Union, cast
 
 import aio_pika
@@ -208,11 +209,17 @@ class RabbitmqConnection:
     async def close(self) -> None:
         """Closes the RabbitMQ connection."""
         if self.__rabbitmq_connection is not None and not self.__rabbitmq_connection.is_closed:
+            root_logger = logging.getLogger()
+            root_logger_level = root_logger.level
             try:
+                # suppress the log messages when closing the connection
+                root_logger.setLevel(logging.CRITICAL)
                 await self.__rabbitmq_connection.close()
             except CONNECTION_EXCEPTIONS as closing_error:
                 LOGGER.warning("When closing RabbitMQ connection, received: {} : {}".format(
                     type(closing_error).__name__, closing_error))
+            finally:
+                root_logger.setLevel(root_logger_level)
 
         self.__rabbitmq_connection = None
         self.__rabbitmq_channel = None

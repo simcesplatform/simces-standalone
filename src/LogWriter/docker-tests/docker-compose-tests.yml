@@ -6,7 +6,7 @@ services:
     build:
       context: ..
       dockerfile: Dockerfile-tests
-    image: log_writer_tests:0.1
+    image: log_writer_tests:1.0.4
     container_name: log_writer_tests
     restart: "no"
     environment:

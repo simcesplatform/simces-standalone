@@ -29,8 +29,12 @@ git submodule update --remote
 
 First configure the connection details for the RabbitMQ message bus, for the MongoDB database, and simulation id in the file [`log_writer.env`](log_writer.env). Instructions on how to setup a local RabbitMQ server can be found at [https://github.com/simcesplatform/simulation-manager#start-local-rabbitmq-server](https://github.com/simcesplatform/simulation-manager#start-local-rabbitmq-server) and instructions for starting a local MongoDB instance can be found at [mongodb](mongodb/README.md).
 
+Note: if you are using an old version of Docker and separately installed Docker Compose, in the following replace `docker compose` with `docker-compose`
+
 ```bash
-docker-compose -f docker-compose-log-writer.yml up --build
+docker network create mongodb_network
+docker network create rabbitmq_network
+docker compose -f docker-compose-log-writer.yml up --build
 ```
 
 For running the Log Writer in the background add `--detach` to the end of the previous command.

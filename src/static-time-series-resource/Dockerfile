@@ -1,4 +1,4 @@
-FROM python:3.7.6
+FROM python:3.7.16
 
 RUN mkdir -p /static_time_series_resource
 RUN mkdir -p /init

@@ -6,7 +6,7 @@ services:
     build:
       context: ..
       dockerfile: Dockerfile-listener
-    image: listener:0.1
+    image: listener:1.0.4
     container_name: listener_component
     restart: "no"
     env_file:

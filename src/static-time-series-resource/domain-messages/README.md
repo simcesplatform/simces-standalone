@@ -14,7 +14,7 @@ The following messages have been defined:
     - Child class of AbstractResultMessage
     - Adds MarketId, ResourceId, PricingType, Prices
     - Definition: [PriceForecastStateMessage](https://simcesplatform.github.io/energy_msg-priceforecaststate/)
-    
+
 ## How to include domain-messages to your own project
 
 Two optional ways of including domain-messages are described here.
@@ -28,7 +28,7 @@ Two optional ways of including domain-messages are described here.
     - Clone the domain-messages repository:
 
         ```bash
-        git clone https://github.com/simcesplatform/domain-messages.git
+        git clone --recurse-submodules https://github.com/simcesplatform/domain-messages.git
         ```
 
     - Copy the `domain_messages` folder from domain-messages repository manually to the root folder of your own Python project.
@@ -53,7 +53,7 @@ Two optional ways of including domain-messages are described here.
         git submodule add -b master https://github.com/simcesplatform/domain-messages.git
         git submodule init
         cd domain-messages
-        git submodule init    
+        git submodule init
         cd simulation-tools
         cd ../..
         git submodule update --remote --recursive
@@ -72,7 +72,7 @@ Two optional ways of including domain-messages are described here.
     - Start using the library. For example the ResourceStateMessage class can be made available by using:
 
        ```python
-       from domain_messages.resource import ResourceStateMessage 
+       from domain_messages.resource import ResourceStateMessage
        ```
 
     - To update the domain-messages library to the newest version, run:
@@ -89,4 +89,4 @@ for general detailed instructions. Messages related to a certain domain topic ca
 
 ```python
 from domain_messages.resource import ResourceStateMessage
-```    
+```

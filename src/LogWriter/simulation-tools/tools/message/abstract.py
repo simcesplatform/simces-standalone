@@ -83,13 +83,13 @@ class BaseMessage():
     OPTIONAL_ATTRIBUTES = []
 
     # attributes whose value is a QuantityBlock and the expected unit of measure.
-    # https://wiki.eduuni.fi/display/tuniSimCES/Quantity+block
+    # https://simcesplatform.github.io/core_block-quantity/
     QUANTITY_BLOCK_ATTRIBUTES = {}
     # attributes whose value is a QuantityArrayBlock and the expected unit of measure.
-    # https://wiki.eduuni.fi/display/tuniSimCES/Quantity+array+block
+    # https://simcesplatform.github.io/core_block-quantity-array/
     QUANTITY_ARRAY_BLOCK_ATTRIBUTES = {}
     # a list of attributes whose value is a TimeSeriesBlock.
-    # https://wiki.eduuni.fi/pages/viewpage.action?spaceKey=tuniSimCES&title=Time+series+block
+    # https://simcesplatform.github.io/core_time-series/
     TIMESERIES_BLOCK_ATTRIBUTES = []
 
     # Full list af all attribute names, any subclass should update these with additional names.
