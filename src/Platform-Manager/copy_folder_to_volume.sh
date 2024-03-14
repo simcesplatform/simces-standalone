@@ -14,8 +14,11 @@ echo "Copying the contents of '$folder' to Docker volume '$volume_name' to folde
 docker volume create $volume_name > /dev/null
 
 # remove earlier helper container
-docker stop $helper_container > /dev/null 2>&1
-docker rm $helper_container > /dev/null 2>&1
+for old_helper in $(docker ps --all --quiet | grep $helper_container)
+do
+    docker stop $helper_container > /dev/null 2>&1
+    docker rm $helper_container > /dev/null 2>&1
+done
 
 # start the helper container
 docker run -d --name $helper_container --volume $volume_name:$volume_folder:rw ubuntu:18.04 sleep 10m > /dev/null
